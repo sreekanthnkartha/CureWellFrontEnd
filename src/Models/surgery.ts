@@ -1,4 +1,4 @@
-export class Surgery {
+export class SurgeryModel {
     SurgeryId: number;
     DoctorID: number;
     EndTime: number;
