@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SurgeryModel } from 'src/Models/surgery';
 import { SurgeryService } from 'src/Services/surgery.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-todays-surgery',
@@ -10,7 +11,7 @@ import { SurgeryService } from 'src/Services/surgery.service';
 export class ViewTodaysSurgeryComponent {
   TodaysSurgeryList:SurgeryModel[]|null=null;
 
-  constructor(private surgeryService:SurgeryService){
+  constructor(private surgeryService:SurgeryService,private router: Router){
     surgeryService.getAllSurgeriesForToday().subscribe(
       surgeries => {this.TodaysSurgeryList = surgeries;
       console.log(this.TodaysSurgeryList);
@@ -19,6 +20,6 @@ export class ViewTodaysSurgeryComponent {
   }
   editSurgery(surgery: SurgeryModel): void {
     
-    // this.router.navigate(['/update-surgery', surgery.SurgeryId]);
+    //this.router.navigate(['/updateSurgery', surgery.SurgeryId]);
   }
 }
