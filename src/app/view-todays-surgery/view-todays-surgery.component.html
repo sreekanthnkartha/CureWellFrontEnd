@@ -1,0 +1,35 @@
+<div class="container table-container">
+    <div *ngIf="TodaysSurgeryList?.length > 0;else noSurgery">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Surgery ID</th>
+            <th>Doctor ID</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Surgery Category</th>
+            <th>Surgery Date</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let surgery of TodaysSurgeryList">
+            <td>{{ surgery.SurgeryId }}</td>
+            <td>{{ surgery.DoctorID }}</td>
+            <td>{{ surgery.StartTime }}</td>
+            <td>{{ surgery.EndTime }}</td>
+            <td>{{ surgery.SurgeryCategory }}</td>
+            <td>{{ surgery.SurgeryDate | date }}</td>
+            <td>
+              <button class="btn btn-primary btn-edit" (click)="editSurgery(surgery)">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <ng-template #noSurgery>
+      <p class="no-surgery-message">No Surgeries Scheduled for Today</p>
+    </ng-template>
+  </div>
+  
