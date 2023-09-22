@@ -20,6 +20,6 @@ export class ViewTodaysSurgeryComponent {
   }
   editSurgery(surgery: SurgeryModel): void {
     
-    //this.router.navigate(['/updateSurgery', surgery.SurgeryId]);
+    this.router.navigate(['/updateSurgery', surgery.SurgeryId]);
   }
 }
