@@ -1,0 +1,7 @@
+<!-- <p>add-doctor works!</p> -->
+<form [formGroup]="AddDoctorForm" (ngSubmit)="onSubmit()">
+    <label for="DoctorName">Doctor Name: </label>
+    <input type="text" name="DoctorName" id="DoctorName" formControlName="DoctorName">
+    <hr>
+    <input type="submit" value="Submit">
+</form>
