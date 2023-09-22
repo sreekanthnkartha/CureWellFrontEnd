@@ -1,0 +1,27 @@
+<div class="m-4">
+    <h2>Doctor Data</h2>
+
+    <div class="table-responsive table-fixed">
+        <table class="table table-bordered mt-4">
+            <tr>
+                <th class="IDWidth">Doctor ID</th>
+                <th class="NameWidth">Doctor Name</th>
+                <th class="EditWidth">Edit</th>
+                <th class="RemoveWidth">Remove</th>
+            </tr>
+            <tbody>
+                <!-- use async in case of the Observable array -->
+                <tr *ngFor="let pos of displayDoctors | async;">
+                    <td>{{pos.DoctorID}}</td>
+                    <td>{{pos.DoctorName}}</td>
+                    <td>
+                        <button class="btn btn-primary btn-block" [routerLink]="['/editDoctor', pos.DoctorID, pos.DoctorName]">Edit</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-block">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>   
+    </div>
+</div>

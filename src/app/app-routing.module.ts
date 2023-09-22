@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { ViewTodaysSurgeryComponent } from './view-todays-surgery/view-todays-surgery.component';
 import { UpdateSurgeryComponent } from './update-surgery/update-surgery.component';
+import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: 'showAllDoctors', component: ViewDoctorComponent },
   { path: 'viewTodaysSurgery', component:  ViewTodaysSurgeryComponent},
   { path: 'updateSurgery', component:  UpdateSurgeryComponent},
 ];
