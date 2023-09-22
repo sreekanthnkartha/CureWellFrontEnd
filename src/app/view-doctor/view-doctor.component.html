@@ -11,7 +11,7 @@
             </tr>
             <tbody>
                 <!-- use async in case of the Observable array -->
-                <tr *ngFor="let pos of displayDoctors | async;">
+                <tr *ngFor="let pos of displayDoctors;">
                     <td>{{pos.DoctorID}}</td>
                     <td>{{pos.DoctorName}}</td>
                     <td>

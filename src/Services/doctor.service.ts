@@ -22,6 +22,6 @@ export class DoctorService {
   }
 
   DeleteDoctor(id:number){
-    this._httpClient.delete(this.apiUrl+'/'+id).subscribe();
+    this._httpClient.delete(this.apiUrl+ "Doctors/"+id).subscribe();
   }
 }

@@ -11,7 +11,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./view-doctor.component.css']
 })
 export class ViewDoctorComponent {
-  displayDoctors: Observable<Doctor[]>;
+  displayDoctors: Doctor[];
 
   constructor(private _doctorService: DoctorService, private router: Router) { }
 
@@ -22,7 +22,9 @@ export class ViewDoctorComponent {
 
   ngOnInit(): void {
     console.log("he");
-    this.displayDoctors = this._doctorService.getDoctors();
+    this._doctorService.getDoctors().subscribe(
+      (data)=>this.displayDoctors=data
+    );
     if (this.displayDoctors) {
       console.log("hello");
     }
@@ -31,8 +33,12 @@ export class ViewDoctorComponent {
     }
   }
   removedoc(id:number): void{
-    console.log(id);    
+    // console.log(id);    
     this._doctorService.DeleteDoctor(id);
-    this.ngOnInit();
+    let fnd:Doctor=this.displayDoctors.find(i=>i.DoctorID==id);
+    let ind:number=this.displayDoctors.indexOf(fnd);
+    // console.log(ind);
+    this.displayDoctors.splice(ind,1);
+    
   }
 }
