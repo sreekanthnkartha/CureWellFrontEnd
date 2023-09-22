@@ -9,7 +9,7 @@ import { Doctor } from 'src/Models/doctor';
 export class DoctorService {
   constructor(private _httpClient: HttpClient) { }
 
-  apiUrl: string = "http://localhost:62506/api/";
+  apiUrl: string = "http://localhost:3000/api/";
 
   static displayDoctors: Observable<Doctor[]>;
 
@@ -19,5 +19,9 @@ export class DoctorService {
 
   editDoctorDetails(id:number, value: Doctor) {
     this._httpClient.put(this.apiUrl + "Doctors/" + id, value).subscribe();
+  }
+
+  DeleteDoctor(id:number){
+    this._httpClient.delete(this.apiUrl+'/'+id).subscribe();
   }
 }

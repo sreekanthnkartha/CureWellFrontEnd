@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
 import { EditDoctorComponent } from './edit-doctor/edit-doctor.component';
+import { DeleteDoctorComponent } from './delete-doctor/delete-doctor.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { EditDoctorComponent } from './edit-doctor/edit-doctor.component';
     ViewTodaysSurgeryComponent,
     UpdateSurgeryComponent,
     ViewDoctorComponent,
-    EditDoctorComponent
+    EditDoctorComponent,
+    DeleteDoctorComponent
   ],
   imports: [
     BrowserModule,

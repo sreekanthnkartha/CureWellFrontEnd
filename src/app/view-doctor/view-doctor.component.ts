@@ -30,4 +30,9 @@ export class ViewDoctorComponent {
       console.log("error");
     }
   }
+  removedoc(id:number): void{
+    console.log(id);    
+    this._doctorService.DeleteDoctor(id);
+    this.ngOnInit();
+  }
 }
