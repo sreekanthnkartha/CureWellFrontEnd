@@ -7,13 +7,15 @@ import { ViewTodaysSurgeryComponent } from './view-todays-surgery/view-todays-su
 import { UpdateSurgeryComponent } from './update-surgery/update-surgery.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewTodaysSurgeryComponent,
-    UpdateSurgeryComponent
+    UpdateSurgeryComponent,
+    AddDoctorComponent
   ],
   imports: [
     BrowserModule,
