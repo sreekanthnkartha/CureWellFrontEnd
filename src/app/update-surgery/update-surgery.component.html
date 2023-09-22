@@ -1,1 +1,32 @@
-<p>update-surgery works!</p>
+<div class="container">
+    <h2>Update Surgery</h2>
+    <form (ngSubmit)="submitForm()" [formGroup]="updateSurgeryForm">
+      <div class="mb-3">
+        <label for="surgeryId" class="form-label">Surgery ID</label>
+        <input type="text" class="form-control" id="surgeryId" [value]="surgery.SurgeryId" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="doctorID" class="form-label">Doctor ID</label>
+        <input type="number" class="form-control" id="doctorID" formControlName="doctorID" required>
+      </div>
+      <div class="mb-3">
+        <label for="startTime" class="form-label">Start Time</label>
+        <input type="number" class="form-control" id="startTime" formControlName="startTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="endTime" class="form-label">End Time</label>
+        <input type="number" class="form-control" id="endTime" formControlName="endTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="surgeryCategory" class="form-label">Surgery Category</label>
+        <input type="text" class="form-control" id="surgeryCategory" formControlName="surgeryCategory" required>
+      </div>
+      <div class="mb-3">
+        <label for="surgeryDate" class="form-label">Surgery Date</label>
+        <input type="date" class="form-control" id="surgeryDate" formControlName="surgeryDate" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+    </form>
+  </div>
+  

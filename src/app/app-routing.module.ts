@@ -6,7 +6,7 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
 const routes: Routes = [
   { path: 'viewTodaysSurgery', component:  ViewTodaysSurgeryComponent},
-  { path: 'updateSurgery', component:  UpdateSurgeryComponent},
+  { path: 'updateSurgery/:id', component:  UpdateSurgeryComponent},
   {path:'addDoctor',component:AddDoctorComponent}
 ];
 
