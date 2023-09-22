@@ -23,7 +23,7 @@ export class ViewDoctorComponent {
   ngOnInit(): void {
     console.log("he");
     this._doctorService.getDoctors().subscribe(
-      (data)=>this.displayDoctors=data
+      (data) => this.displayDoctors = data
     );
     if (this.displayDoctors) {
       console.log("hello");
@@ -32,13 +32,14 @@ export class ViewDoctorComponent {
       console.log("error");
     }
   }
-  removedoc(id:number): void{
-    // console.log(id);    
-    this._doctorService.DeleteDoctor(id);
-    let fnd:Doctor=this.displayDoctors.find(i=>i.DoctorID==id);
-    let ind:number=this.displayDoctors.indexOf(fnd);
-    // console.log(ind);
-    this.displayDoctors.splice(ind,1);
-    
+  removeDoc(name: string, id: number): void {
+    if (confirm("Are you sure to delete " + name)) {
+      // console.log(id);    
+      this._doctorService.DeleteDoctor(id);
+      let fnd: Doctor = this.displayDoctors.find(i => i.DoctorID == id);
+      let ind: number = this.displayDoctors.indexOf(fnd);
+      // console.log(ind);
+      this.displayDoctors.splice(ind, 1);
+    }
   }
 }
