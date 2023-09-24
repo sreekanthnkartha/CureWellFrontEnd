@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
 import { EditDoctorComponent } from './edit-doctor/edit-doctor.component';
 import { DeleteDoctorComponent } from './delete-doctor/delete-doctor.component';
+import { ViewspecializationComponent } from './viewspecialization/viewspecialization.component';
+import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specialization/view-doctor-by-specialization.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { DeleteDoctorComponent } from './delete-doctor/delete-doctor.component';
     UpdateSurgeryComponent,
     ViewDoctorComponent,
     EditDoctorComponent,
-    DeleteDoctorComponent
+    DeleteDoctorComponent,
+    ViewspecializationComponent,
+    ViewDoctorBySpecializationComponent,
   ],
   imports: [
     BrowserModule,
