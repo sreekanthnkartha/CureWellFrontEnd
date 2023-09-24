@@ -1,3 +1,6 @@
 .errormsg{
     color: red;
 }
+#update-btn{
+    margin-right: 15px;
+}
