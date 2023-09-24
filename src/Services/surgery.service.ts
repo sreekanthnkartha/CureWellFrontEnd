@@ -31,7 +31,7 @@ export class SurgeryService {
   }
 
   updateSurgery(s: SurgeryModel) {
-    console.log(s);
+    
     
     this.http.put(this.surgeryAPI + '/' + s.SurgeryId, s).subscribe(
       (data: any) => {
@@ -39,7 +39,7 @@ export class SurgeryService {
 
           console.log('Surgery updated successfully');
           
-          alert('Surgery updated successfully');
+          alert('Surgery details updated successfully!');
         } else {
           console.error('Failed to update surgery');
           alert('Failed to update surgery');
