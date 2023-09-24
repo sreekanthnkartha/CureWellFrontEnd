@@ -2,7 +2,8 @@ import { Component,OnInit, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators  } from '@angular/forms';
 import { SurgeryModel } from 'src/Models/surgery';
 import { SurgeryService } from 'src/Services/surgery.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-update-surgery',
@@ -26,7 +27,7 @@ export class UpdateSurgeryComponent {
   surgeryService:SurgeryService;
   
 
-  constructor(private ser:SurgeryService,private fb: FormBuilder,private route: ActivatedRoute,) { 
+  constructor(private ser:SurgeryService,private fb: FormBuilder,private route: ActivatedRoute,private router: Router) { 
     this.surgeryService =ser;
   }
 
@@ -81,6 +82,6 @@ export class UpdateSurgeryComponent {
   }
 
   goBack() {
-    // Use Angular Router to navigate back to view surgery
+    this.router.navigate(['/viewTodaysSurgery']);
   }
 }
