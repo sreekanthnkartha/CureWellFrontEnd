@@ -51,11 +51,11 @@ export class UpdateSurgeryComponent {
     
     this.updateSurgeryForm = this.fb.group({
       surgeryId: [{value: this.surgery.SurgeryId, disabled: true}],
-      doctorID: [this.surgery.DoctorID, Validators.required],
-      startTime: [this.surgery.StartTime, Validators.required],
-      endTime: [this.surgery.EndTime, Validators.required],
-      surgeryCategory: [this.surgery.SurgeryCategory, Validators.required],
-      surgeryDate: [this.surgery.SurgeryDate.toString().slice(0,10), Validators.required]
+      doctorID: [{value:this.surgery.DoctorID,disabled: true}],
+      startTime: [this.surgery.StartTime, [Validators.required, Validators.min(0), Validators.max(24)]],
+      endTime: [this.surgery.EndTime, [Validators.required, Validators.min(0), Validators.max(24)]],
+      surgeryCategory: [{value:this.surgery.SurgeryCategory,disabled:true}],
+      surgeryDate: [{value:this.surgery.SurgeryDate.toString().slice(0,10),disabled:true}]
     });
   }
 
@@ -66,13 +66,17 @@ export class UpdateSurgeryComponent {
       let surgeryModel:SurgeryModel = new SurgeryModel();
 
       surgeryModel.SurgeryId=this.surgery.SurgeryId; 
-      surgeryModel.DoctorID=formValue.doctorID;
+      surgeryModel.DoctorID=this.surgery.DoctorID;
       surgeryModel.StartTime=formValue.startTime;
       surgeryModel.EndTime=formValue.endTime;
-      surgeryModel.SurgeryDate=formValue.surgeryDate;
-      surgeryModel.SurgeryCategory=formValue.surgeryCategory;
+      surgeryModel.SurgeryDate=this.surgery.SurgeryDate;
+      surgeryModel.SurgeryCategory=this.surgery.SurgeryCategory;
 
-      this.surgeryService.updateSurgery(surgeryModel);
+      if (surgeryModel.StartTime >= surgeryModel.EndTime) {
+        alert("Start Time can not be greater than or equal to end time!");
+      } else {
+        this.surgeryService.updateSurgery(surgeryModel);
+      }
     }
   }
 
