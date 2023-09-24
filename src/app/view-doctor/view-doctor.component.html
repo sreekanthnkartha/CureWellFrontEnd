@@ -46,8 +46,8 @@
                     <i class="fa fa-star"></i> 
                 </div>
                 <div class="mt-3 apointment"> 
-                    <button class="btn btn-primary edit_button mr-5">Edit</button> 
-                    <button class="btn btn-danger edit_button">Remove</button> 
+                    <button class="btn btn-primary edit_button mr-5" [routerLink]="['/editDoctor', pos.DoctorID, pos.DoctorName]">Edit</button> 
+                    <button class="btn btn-danger edit_button" (click)="removeDoc(pos.DoctorName, pos.DoctorID)">Remove</button> 
                 </div>
             </div>
         </div>

@@ -12,8 +12,6 @@ export class DoctorService {
 
   apiUrl: string = "http://localhost:3000/api/";
 
-  static displayDoctors: Observable<Doctor[]>;
-
   getDoctors(): Observable<Doctor[]> {
     return this._httpClient.get<Doctor[]>(this.apiUrl + "Doctors");
   }

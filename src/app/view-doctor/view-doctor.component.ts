@@ -25,12 +25,6 @@ export class ViewDoctorComponent {
     this._doctorService.getDoctors().subscribe(
       (data) => this.displayDoctors = data
     );
-    if (this.displayDoctors) {
-      console.log("hello");
-    }
-    else {
-      console.log("error");
-    }
   }
   removeDoc(name: string, id: number): void {
     if (confirm("Are you sure to delete " + name)) {
