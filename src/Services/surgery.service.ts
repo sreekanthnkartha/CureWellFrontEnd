@@ -8,12 +8,8 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SurgeryService {
-  
-<<<<<<< HEAD
+
   surgeryAPI:string="http://localhost:3000/api/Surgery";
-=======
-  surgeryAPI:string="https://localhost:44390/api/Surgery";
->>>>>>> 566c768 (html)
 
 
   constructor(private http:HttpClient) { }
