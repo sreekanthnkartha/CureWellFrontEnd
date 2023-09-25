@@ -10,6 +10,7 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { ShowAllSpecializationsComponent } from './show-all-specializations/show-all-specializations.component';
 import { HomeComponent } from './home/home.component';
 
+
 const routes: Routes = [
   { path: 'showAllDoctors', component: ViewDoctorComponent },
   { path: 'editDoctor/:id/:name', component: EditDoctorComponent },

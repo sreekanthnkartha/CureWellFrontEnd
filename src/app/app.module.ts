@@ -22,6 +22,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     ViewTodaysSurgeryComponent,
     UpdateSurgeryComponent,
+    AddDoctorComponent,
+    ShowAllSpecializationsComponent,
     ViewDoctorComponent,
     EditDoctorComponent,
     DeleteDoctorComponent,
