@@ -1,4 +1,30 @@
-<div class="container table-container">
+<div class="row">
+  <div class="col-12 col-lg-6 col-md-6" *ngFor="let surgery of TodaysSurgeryList" >
+    <div class="card m-3 " style="display: flex;">
+      <div class="card-header d-flex justify-content-center align-items-center" style="background-color: #96D2C8;">
+        <strong>Surgery ID: {{ surgery.SurgeryId }}</strong> 
+      </div>
+      <div class="card-body">
+        <h6>Doctor ID: {{ surgery.DoctorID }}</h6>
+        <h6>Start Time: {{surgery.StartTime}}</h6>
+        <h6>End Time: {{surgery.EndTime}}</h6>
+        <h6>Surgery Category: {{surgery.SurgeryCategory}}</h6>
+        <h6>Surgery Date: {{surgery.SurgeryDate}}</h6>
+      </div>
+
+      <div class="card-footer d-flex justify-content-center align-items-center" style="background-color: #96D2C8;">
+        <button class="btn btn-edit" style="background-color: #348779; color: white;" (click)="editSurgery(surgery)">Edit Surgery Time</button>
+      </div>
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- <div class="container table-container">
     <div *ngIf="TodaysSurgeryList?.length > 0;else noSurgery">
       <table class="table table-bordered">
         <thead>
@@ -31,5 +57,5 @@
     <ng-template #noSurgery>
       <p class="no-surgery-message">No Surgeries Scheduled for Today</p>
     </ng-template>
-  </div>
+  </div> -->
   
