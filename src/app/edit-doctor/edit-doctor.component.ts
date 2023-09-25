@@ -21,7 +21,7 @@ export class EditDoctorComponent {
     this.docName = this._activatedRoute.snapshot.paramMap.get('name') || '';
 
     this.editDoctorForm = new FormGroup({
-      DoctorID: new FormControl(this.docID),
+      DoctorID: new FormControl({value:this.docID, disabled:true}),
       DoctorName: new FormControl(this.docName)
     });
   }  
@@ -29,11 +29,15 @@ export class EditDoctorComponent {
   onSubmit() { 
     let doctor: Doctor = new Doctor();
 
-    doctor.DoctorID = this.editDoctorForm.value.DoctorID;
+    doctor.DoctorID = this.docID;
     doctor.DoctorName = this.editDoctorForm.value.DoctorName;
 
     this._doctorService.editDoctorDetails(doctor.DoctorID, doctor);
 
+    this._router.navigate(['/showAllDoctors']);
+  }
+
+  onCancel(){
     this._router.navigate(['/showAllDoctors']);
   }
 }
