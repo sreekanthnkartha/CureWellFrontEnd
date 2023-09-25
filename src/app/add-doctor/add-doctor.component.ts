@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Doctor } from 'src/Models/doctor';
 import { DoctorServiceService } from 'src/Services/doctor-service.service';
+import { DoctorService } from 'src/Services/doctor.service';
 
 @Component({
   selector: 'app-add-doctor',
@@ -14,12 +15,12 @@ export class AddDoctorComponent implements OnInit {
     DoctorName:new FormControl()
   })
 
-  docService:DoctorServiceService;
+  docService:DoctorService;
 
   /**
    *
    */
-  constructor(private doc:DoctorServiceService) {
+  constructor(private doc:DoctorService) {
     this.docService=doc
     
   }
