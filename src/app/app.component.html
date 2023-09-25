@@ -1,12 +1,12 @@
 <div class="container-fluid">
 
-  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar mb-3">
 
     <a class="navbar-brand" href="#">
 
-      <img src="../assets/images/hospital_icon.png" alt="Hospital Icon" width="30" height="30">
+      <img class="mr-2" src="../assets/images/hospital_icon.png" alt="Hospital Icon" width="30" height="30">
 
-      <strong>CureWell</strong>
+      <strong style="font-size: larger;">CureWell</strong>
 
     </a>
 
@@ -18,15 +18,16 @@
 
     <div class="collapse navbar-collapse justify-content-centre" id="navbarNavAltMarkup">
 
-      <div class="navbar-nav mx-auto">
+      <div class="navbar-nav mx-auto mt-3">
+        <p><a class="nav-item nav-link active mr-3" [routerLink]="['Home']">Home <span class="sr-only">(current)</span></a></p>
 
-        <p><a class="nav-item nav-link active" [routerLink]="['showAllDoctors']">View Doctors <span class="sr-only">(current)</span></a></p>
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['showAllDoctors']">View Doctors </a></p>
 
-        <p><a class="nav-item nav-link" [routerLink]="['showAllSpecializations']">View Specializations</a></p>
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['showAllSpecializations']">View Specializations</a></p>
 
-        <p><a class="nav-item nav-link" [routerLink]="['viewTodaysSurgery']">View Today's Surgery</a></p>
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['viewTodaysSurgery']">View Today's Surgery</a></p>
 
-        <p><a class="nav-item nav-link" [routerLink]="['addDoctor']">Add Doctor</a></p>
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['addDoctor']">Add Doctor</a></p>
 
       </div>
 

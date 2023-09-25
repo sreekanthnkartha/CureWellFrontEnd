@@ -7,7 +7,7 @@
   }
   
   .custom-navbar {
-    background-color: rgb(2, 51, 55);
+    background-color: #348779;
     width: 110%;
     margin-left: -50px;
     
@@ -16,7 +16,8 @@
   
   .custom-navbar .navbar-nav .nav-link {
     color: white;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: large;
   }
   
   .custom-navbar .navbar-toggler-icon {
