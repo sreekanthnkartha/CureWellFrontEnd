@@ -1,17 +1,44 @@
-<div class="container"> 
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">Northwind App</a>
+<div class="container-fluid">
+
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar mb-3">
+
+    <a class="navbar-brand" href="#">
+
+      <img class="mr-2" src="../assets/images/hospital_icon.png" alt="Hospital Icon" width="30" height="30">
+
+      <strong style="font-size: larger;">CureWell</strong>
+
+    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
+
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <p><a class="nav-item nav-link active" [routerLink]="['showAllDoctors']">View Doctors <span class="sr-only">(current)</span></a></p>
-        <p><a class="nav-item nav-link" [routerLink]="['showAllSpecializations']">View Specializations</a></p>
-        <p><a class="nav-item nav-link" [routerLink]="['viewTodaysSurgery']">View Today's Surgery</a></p>
-        <p><a class="nav-item nav-link" [routerLink]="['addDoctor']">Add Doctor</a></p>
+
+    <div class="collapse navbar-collapse justify-content-centre" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav mx-auto mt-3">
+        <p><a class="nav-item nav-link active mr-3" [routerLink]="['Home']">Home <span class="sr-only">(current)</span></a></p>
+
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['showAllDoctors']">View Doctors </a></p>
+
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['showAllSpecializations']">View Specializations</a></p>
+
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['viewTodaysSurgery']">View Today's Surgery</a></p>
+
+        <p><a class="nav-item nav-link mr-3" [routerLink]="['addDoctor']">Add Doctor</a></p>
+
       </div>
+
     </div>
+
   </nav>
-  <router-outlet></router-outlet>
+
+  <div class="container">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
 </div>

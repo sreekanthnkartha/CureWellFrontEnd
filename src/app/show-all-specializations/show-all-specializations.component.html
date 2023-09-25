@@ -1,0 +1,15 @@
+<!--<div class="d1"><h1 style="text-align: center;">Specialization List</h1></div>-->
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Specialization Code</th>
+            <th scope="col">Specialization Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let spec of specializationList">
+                <td>{{spec.SpecializationCode}}</td>
+                <td>{{spec.SpecializationName}}</td>
+        </tr>
+    </tbody>
+</table>

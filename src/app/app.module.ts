@@ -13,6 +13,8 @@ import { DeleteDoctorComponent } from './delete-doctor/delete-doctor.component';
 import { ViewspecializationComponent } from './viewspecialization/viewspecialization.component';
 import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specialization/view-doctor-by-specialization.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+import { ShowAllSpecializationsComponent } from './show-all-specializations/show-all-specializations.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -20,12 +22,17 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
     AppComponent,
     ViewTodaysSurgeryComponent,
     UpdateSurgeryComponent,
+    AddDoctorComponent,
+    ShowAllSpecializationsComponent,
     ViewDoctorComponent,
     EditDoctorComponent,
     DeleteDoctorComponent,
     ViewspecializationComponent,
     ViewDoctorBySpecializationComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    AddDoctorComponent,
+    ShowAllSpecializationsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
