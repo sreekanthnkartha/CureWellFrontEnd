@@ -10,14 +10,14 @@ import { Doctorspecialization } from 'src/Models/doctorspecialization';
 export class DoctorService {
   constructor(private _httpClient: HttpClient) { }
 
-  apiUrl: string = "https://localhost:44390/api/";
+  apiUrl: string = "http://localhost:3000/api/";
 
   getDoctors(): Observable<Doctor[]> {
     return this._httpClient.get<Doctor[]>(this.apiUrl + "Doctors");
   }
 
   getDoctorSpec(): Observable<Doctorspecialization[]> {
-    return this._httpClient.get<Doctorspecialization[]>("https://localhost:44390/api/Specialization");
+    return this._httpClient.get<Doctorspecialization[]>("http://localhost:3000/api/Specialization");
   }
 
   AddNewDoctor(AddDoc:Doctor){
