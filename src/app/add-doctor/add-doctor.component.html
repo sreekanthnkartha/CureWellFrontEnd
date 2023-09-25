@@ -1,7 +1,20 @@
 <!-- <p>add-doctor works!</p> -->
-<form [formGroup]="AddDoctorForm" (ngSubmit)="onSubmit()">
-    <label for="DoctorName">Doctor Name: </label>
-    <input type="text" name="DoctorName" id="DoctorName" formControlName="DoctorName">
-    <hr>
-    <input type="submit" value="Submit">
-</form>
+<div class="container m-5 d-flex justify-content-center align-items-center">
+    <div class="card text-center" style="width: 50%;">
+        <div class="card-header" style="background-color: #96D2C8;">
+            <strong>Add Doctor</strong> 
+        </div>
+        <form [formGroup]="AddDoctorForm" (ngSubmit)="onSubmit()">
+            <div class="card-body" style="height: 5cm;padding-top:13%;">
+
+            <label for="DoctorName"><h6>Doctor Name: </h6></label>
+            <input type="text" name="DoctorName" id="DoctorName" formControlName="DoctorName">
+        </div>
+            <div class="card-footer" style="background-color: #96D2C8;">
+                <input class="btn" style="background-color: #348779; color: white;" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+
+
