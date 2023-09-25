@@ -14,6 +14,7 @@ import { ViewspecializationComponent } from './viewspecialization/viewspecializa
 import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specialization/view-doctor-by-specialization.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { ShowAllSpecializationsComponent } from './show-all-specializations/show-all-specializations.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -28,7 +29,10 @@ import { ShowAllSpecializationsComponent } from './show-all-specializations/show
     DeleteDoctorComponent,
     ViewspecializationComponent,
     ViewDoctorBySpecializationComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    AddDoctorComponent,
+    ShowAllSpecializationsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
