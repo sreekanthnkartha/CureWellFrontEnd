@@ -6,7 +6,7 @@ import { Doctor } from 'src/Models/doctor';
   providedIn: 'root'
 })
 export class DoctorServiceService {
-  getDoctorsAPI:string="https://localhost:44390/api/doctors";
+  getDoctorsAPI:string="http://localhost:3000/api/Doctors";
 
   constructor(private http:HttpClient) { }
 

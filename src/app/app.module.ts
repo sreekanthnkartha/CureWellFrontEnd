@@ -8,6 +8,7 @@ import { UpdateSurgeryComponent } from './update-surgery/update-surgery.componen
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+import { ShowAllSpecializationsComponent } from './show-all-specializations/show-all-specializations.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
     AppComponent,
     ViewTodaysSurgeryComponent,
     UpdateSurgeryComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    ShowAllSpecializationsComponent
   ],
   imports: [
     BrowserModule,
