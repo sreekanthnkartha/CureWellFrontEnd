@@ -18,8 +18,16 @@
     </div>
 </div> -->
 <div class="row">
+    <h1 *ngIf="code==='ANE'">Anesthesiologists</h1>
+            <h1 *ngIf="code==='CAR'">Cardiologists</h1>
+            <h1 *ngIf="code==='GYN'">Gynaecologists</h1>
+    
     <div class="col-md-6 col-lg-6" *ngFor="let pos of displayDoctors;">
+        
+            
+            
         <div class="doctors_list">
+            
             <div class="doctor_pic">
                 <img src="/assets/doctor.png" alt="image" width="100">
             </div>

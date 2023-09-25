@@ -34,6 +34,6 @@ export class DoctorService {
   }
 
   getdoctorbyspecialization(code:string):Observable<Doctor[]> {
-    return this._httpClient.get<Doctor[]>(this.apiUrl + "Doctor/"+code);
+    return this._httpClient.get<Doctor[]>(this.apiUrl + "Doctors/"+code);
   }
 }
