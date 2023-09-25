@@ -1,0 +1,37 @@
+
+body {
+    background-image: url('../assets/images/Curewell.png');
+    background-size: cover;
+    min-height: 100vh; 
+    margin: 0; 
+  }
+
+  .navbar-brand{
+    color: whitesmoke;
+    padding-left: 45px;
+  }
+  
+  .custom-navbar {
+    background-color: rgb(2, 51, 55);
+    width: 110%;
+    margin-left: -50px;
+    
+    
+  }
+  
+  .custom-navbar .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .custom-navbar .navbar-toggler-icon {
+    background-color: white; /* Customize the color of the toggler icon */
+  }
+  
+  .custom-navbar .navbar-toggler:focus {
+    outline: none; /* Remove the focus border on toggler */
+  }
+  
+
+
+  

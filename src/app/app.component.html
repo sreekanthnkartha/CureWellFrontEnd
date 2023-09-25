@@ -1,24 +1,43 @@
-<<<<<<< HEAD
-<div> 
-  <nav class="navbar navbar-expand-lg navbar-light nav">
-=======
-<div class="container"> 
-  <nav class="navbar navbar-expand-lg navbar-light">
->>>>>>> dbc3a65 (view doc by specilaization)
-    <a class="navbar-brand" href="#">Northwind App</a>
+<div class="container-fluid">
+
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+
+    <a class="navbar-brand" href="#">
+
+      <img src="../assets/images/hospital_icon.png" alt="Hospital Icon" width="30" height="30">
+
+      <strong>CureWell</strong>
+
+    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
+
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+
+    <div class="collapse navbar-collapse justify-content-centre" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav mx-auto">
+
         <p><a class="nav-item nav-link active" [routerLink]="['showAllDoctors']">View Doctors <span class="sr-only">(current)</span></a></p>
+
         <p><a class="nav-item nav-link" [routerLink]="['showAllSpecializations']">View Specializations</a></p>
+
         <p><a class="nav-item nav-link" [routerLink]="['viewTodaysSurgery']">View Today's Surgery</a></p>
+
         <p><a class="nav-item nav-link" [routerLink]="['addDoctor']">Add Doctor</a></p>
+
       </div>
+
     </div>
+
   </nav>
+
   <div class="container">
+
     <router-outlet></router-outlet>
+
   </div>
+
 </div>
