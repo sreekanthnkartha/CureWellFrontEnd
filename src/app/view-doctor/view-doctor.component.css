@@ -11,13 +11,14 @@
 }
 
 .apointment button {
-    border-radius: 20px;
+    border-radius: 10px;
     border-color: #eee;
     font-size: 14px
 }
 
 .ratings i {
-    color: green
+    color: green;
+    padding-right: 3px;
 }
 
 .IDWidth{
@@ -35,3 +36,43 @@
 .RemoveWidth{
     width: 15%;
 }
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.doctors_list{
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 30px;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 3px 5px 17px -4px #777777;
+}
+
+.doctor_pic{
+    width: 131px;
+    margin-right: 20px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.but{
+    position: absolute;
+    color: red;
+    font-size: large;
+    top: 3%;
+    right: 3%;
+}
+
+/* .aon-med-team .aon-med-team-position {
+    display: block;
+    color: #ff8a00;
+    font-size: 16px;
+    margin-bottom: 5px;
+} */
