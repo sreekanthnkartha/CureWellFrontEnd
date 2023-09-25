@@ -20,6 +20,11 @@ export class DoctorService {
     return this._httpClient.get<Doctorspecialization[]>("http://localhost:3000/api/Specialization");
   }
 
+  AddNewDoctor(AddDoc:Doctor){
+    this._httpClient.post(this.apiUrl + 'doctors',AddDoc).subscribe(data=>{console.log(data);});
+    alert("New Doctor Added")
+  }
+
   editDoctorDetails(id:number, value: Doctor) {
     this._httpClient.put(this.apiUrl + "Doctors/" + id, value).subscribe();
   }
