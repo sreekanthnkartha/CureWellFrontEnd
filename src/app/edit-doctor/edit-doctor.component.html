@@ -1,0 +1,16 @@
+<div class="m-4">
+    <h2>Edit Doctor</h2>
+  
+    <form class="form-group" action="" [formGroup]="editDoctorForm" (ngSubmit)="onSubmit()">
+        <label for="DoctorID">Doctor ID</label>
+        <input class="form-control" type="number" name="DoctorID" formControlName="DoctorID" id="DoctorID">
+        <br>
+
+        <label for="DoctorName">Doctor Name</label>
+        <input class="form-control" type="text" name="DoctorName" formControlName="DoctorName" id="DoctorName">
+        <br>
+
+        <button type="submit" class="btn btn-primary" value="Submit">Edit</button>
+        <button class="btn btn-danger ml-5" value (click)="onCancel()">Cancel</button>
+    </form>
+</div>

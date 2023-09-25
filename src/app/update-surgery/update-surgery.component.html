@@ -10,12 +10,31 @@
         <input type="number" class="form-control" id="doctorID" formControlName="doctorID" required>
       </div>
       <div class="mb-3">
-        <label for="startTime" class="form-label">Start Time</label>
-        <input type="number" class="form-control" id="startTime" formControlName="startTime" required>
+        <label for="startTime" class="form-label">Start Time(24 Hour Format)</label>
+        <input type="number" class="form-control" id="startTime" formControlName="startTime" required >
+        <div *ngIf="updateSurgeryForm.get('startTime').hasError('required') && updateSurgeryForm.get('startTime').dirty" class ="errormsg" >
+          Start time is required.
+        </div>
+        <div *ngIf="updateSurgeryForm.get('startTime').hasError('min')" class ="errormsg" >
+          Start time must be at least 0.
+        </div>
+        <div *ngIf="updateSurgeryForm.get('startTime').hasError('max')" class ="errormsg" >
+          Start time must be at most 24.
+        </div>
       </div>
+      
       <div class="mb-3">
-        <label for="endTime" class="form-label">End Time</label>
+        <label for="endTime" class="form-label">End Time(24 Hour Format)</label>
         <input type="number" class="form-control" id="endTime" formControlName="endTime" required>
+        <div *ngIf="updateSurgeryForm.get('endTime').hasError('required') && updateSurgeryForm.get('endTime').dirty" class ="errormsg">
+          End time is required.
+        </div>
+        <div *ngIf="updateSurgeryForm.get('endTime').hasError('min')" class ="errormsg" >
+          End time must be at least 0.
+        </div>
+        <div *ngIf="updateSurgeryForm.get('endTime').hasError('max')" class ="errormsg" >
+          End time must be at most 24.
+        </div>
       </div>
       <div class="mb-3">
         <label for="surgeryCategory" class="form-label">Surgery Category</label>
@@ -25,8 +44,8 @@
         <label for="surgeryDate" class="form-label">Surgery Date</label>
         <input type="date" class="form-control" id="surgeryDate" formControlName="surgeryDate" required>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+      <button type="submit" class="btn btn-primary" id="update-btn">Update</button>
+      <button type="button" class="btn btn-secondary" (click)="goBack()">Cancel</button>
     </form>
   </div>
   
