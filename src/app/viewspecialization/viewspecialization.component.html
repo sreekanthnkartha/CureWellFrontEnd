@@ -37,7 +37,9 @@
             <div class="container">
               <h4><b>{{pos.SpecializationName}}</b></h4>
               <p>Specialization Code: {{pos.SpecializationCode}}</p>
-              <button class="btn btn-primary btn-block" [routerLink]="['/showdoctorbyspecialization', pos.SpecializationCode]" style="width: 70px;">View</button>
+              <div style="text-align: center;">
+              <button  class="btn"  id="center" [routerLink]="['/showdoctorbyspecialization', pos.SpecializationCode]" style="width: 70px;background-color:#348779;">View</button>
+              </div>
             </div>
           </div>
     </div>
