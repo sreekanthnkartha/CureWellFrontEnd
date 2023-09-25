@@ -1,4 +1,4 @@
-<div class="m-4">
+<!--<div class="m-4">
     <h2>Specialization Data</h2>
 
     <div class="table-responsive table-fixed">
@@ -9,7 +9,7 @@
                 <th class="EditWidth">View</th>
             </tr>
             <tbody>
-                <!-- use async in case of the Observable array -->
+                
                 <tr *ngFor="let pos of displayDoctors;">
                     <td>{{pos.SpecializationName}}</td>
                     <td>{{pos.SpecializationCode}}</td>
@@ -20,4 +20,26 @@
             </tbody>
         </table>   
     </div>
+</div>-->
+
+
+<div class="mb-2 d-flex justify-content-between"> 
+    <h2>Specialization Data</h2>
+</div>
+<div class="row mb-8">
+    <div class="col-md-4" *ngFor="let pos of displayDoctors;">
+        <div class="card p-2 py-4 mb-3 mr-3 text-center" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="img mb-2">
+            <img src="assets/cardiology-department.jpg" width="90" class="rounded-circle" *ngIf="pos.SpecializationCode==='CAR'">
+            <img src="assets/Anesthesia.jpg" width="90" class="rounded-circle" *ngIf="pos.SpecializationCode==='ANE'">
+            <img src="assets/gynecologist.jfif" width="90" class="rounded-circle" *ngIf="pos.SpecializationCode==='GYN'" style="margin: 10px;">
+            </div>
+            <div class="container">
+              <h4><b>{{pos.SpecializationName}}</b></h4>
+              <p>Specialization Code: {{pos.SpecializationCode}}</p>
+              <button class="btn btn-primary btn-block" [routerLink]="['/showdoctorbyspecialization', pos.SpecializationCode]" style="width: 70px;">View</button>
+            </div>
+          </div>
+    </div>
+
 </div>

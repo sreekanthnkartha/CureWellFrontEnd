@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class SurgeryService {
   
-  surgeryAPI:string="http://localhost:16351/api/Surgery";
+  surgeryAPI:string="http://localhost:3000/api/Surgeryy";
 
 
   constructor(private http:HttpClient) { }
