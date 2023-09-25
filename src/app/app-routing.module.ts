@@ -1,4 +1,3 @@
-
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewTodaysSurgeryComponent } from './view-todays-surgery/view-todays-surgery.component';
