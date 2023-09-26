@@ -12,16 +12,6 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class UpdateSurgeryComponent {
 
-  // updateSurgeryForm= new FormGroup(
-  //   {
-  //     surgeryID:new FormControl()
-  //     doctorID: new FormControl(),
-  //     startTime: new FormControl(),
-  //     endTime: new FormControl(),
-  //     surgeryCategory: new FormControl(),
-  //     surgeryDate: new FormControl()
-  //   }
-  // )
   updateSurgeryForm:FormGroup;
   surgery: SurgeryModel; 
   surgeryService:SurgeryService;

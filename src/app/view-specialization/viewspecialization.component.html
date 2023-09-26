@@ -1,0 +1,22 @@
+<div class="row mb-8">
+    <div class="mb-3"> 
+        <h2>Specializations</h2>
+    </div>
+    <div class="col-md-4" *ngFor="let pos of displayDoctors;">
+        <div class="card p-2 py-4 mb-3 mr-3 text-center" style="border-radius: 15px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="img mb-2">
+            <img src="assets/cardiology-department.jpg" width="90" class="rounded-circle" *ngIf="pos.SpecializationCode==='CAR'">
+            <img src="assets/Anesthesia.jpg" width="90" class="rounded-circle" *ngIf="pos.SpecializationCode==='ANE'">
+            <img src="assets/gynecologist.jfif" width="90" class="rounded-circle" *ngIf="pos.SpecializationCode==='GYN'" style="margin: 10px;">
+            </div>
+            <div class="container">
+              <h4><b>{{pos.SpecializationName}}</b></h4>
+              <p>Specialization Code: {{pos.SpecializationCode}}</p>
+              <div style="text-align: center;">
+              <button  class="btn"  id="center" [routerLink]="['/showdoctorbyspecialization', pos.SpecializationCode]" style="width: 70px;background-color:#348779;color:aliceblue">View</button>
+              </div>
+            </div>
+          </div>
+    </div>
+
+</div>

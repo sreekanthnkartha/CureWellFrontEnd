@@ -12,24 +12,18 @@ export class AddDoctorComponent implements OnInit {
 
 
   AddDoctorForm:FormGroup
-  // AddDoctorForm=new FormGroup({
-  //   DoctorName:new FormControl()
-  // })
 
   docService:DoctorService;
 
-  /**
-   *
-   */
   constructor(private doc:DoctorService,private fb:FormBuilder) {
     this.docService=doc
     
   }
+  
   ngOnInit(): void {
     this.AddDoctorForm=this.fb.group({
       DoctorName:['',[Validators.required]]
     })
-    // throw new Error('Method not implemented.');
   }
 
   onSubmit(){

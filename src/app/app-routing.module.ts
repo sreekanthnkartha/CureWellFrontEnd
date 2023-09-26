@@ -4,23 +4,21 @@ import { ViewTodaysSurgeryComponent } from './view-todays-surgery/view-todays-su
 import { UpdateSurgeryComponent } from './update-surgery/update-surgery.component';
 import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
 import { EditDoctorComponent } from './edit-doctor/edit-doctor.component';
-import { ViewspecializationComponent } from './viewspecialization/viewspecialization.component';
+import { ViewspecializationComponent } from './view-specialization/viewspecialization.component';
 import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specialization/view-doctor-by-specialization.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
-import { ShowAllSpecializationsComponent } from './show-all-specializations/show-all-specializations.component';
 import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
   { path: 'showAllDoctors', component: ViewDoctorComponent },
   { path: 'editDoctor/:id/:name', component: EditDoctorComponent },
-  { path: 'viewTodaysSurgery', component:  ViewTodaysSurgeryComponent},
-  { path: 'updateSurgery', component:  UpdateSurgeryComponent}, 
-  { path: 'showAllSpecializations', component:  ViewspecializationComponent},
+  { path: 'viewTodaysSurgery', component: ViewTodaysSurgeryComponent },
+  { path: 'updateSurgery', component: UpdateSurgeryComponent },
+  { path: 'showAllSpecializations', component: ViewspecializationComponent },
   { path: 'showdoctorbyspecialization/:code', component: ViewDoctorBySpecializationComponent },
-  { path: 'updateSurgery/:id', component:  UpdateSurgeryComponent},
-  {path:'addDoctor',component:AddDoctorComponent},
-  {path:'showAllSpecializations',component:ShowAllSpecializationsComponent},
+  { path: 'updateSurgery/:id', component: UpdateSurgeryComponent },
+  { path: 'addDoctor', component: AddDoctorComponent },
   { path: 'Home', component: HomeComponent },
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
 ];

@@ -16,10 +16,8 @@
 
 .custom-navbar .navbar-toggler-icon {
   background-color: white;
-  /* Customize the color of the toggler icon */
 }
 
 .custom-navbar .navbar-toggler:focus {
   outline: none;
-  /* Remove the focus border on toggler */
 }
