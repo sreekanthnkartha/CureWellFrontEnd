@@ -31,8 +31,6 @@ export class SurgeryService {
   }
 
   updateSurgery(s: SurgeryModel) {
-    
-    
     this.http.put(this.surgeryAPI + '/' + s.SurgeryId, s).subscribe(
       (data: any) => {
         if (data === true) {

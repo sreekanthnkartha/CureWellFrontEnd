@@ -33,8 +33,7 @@ export class UpdateSurgeryComponent {
 
   ngOnInit(): void {
     const surgeryId = +this.route.snapshot.paramMap.get('id');
-    
-
+  
     this.surgeryService.getSurgeryById(surgeryId).subscribe(
       surgery => {
         this.surgery = surgery;
@@ -73,7 +72,7 @@ export class UpdateSurgeryComponent {
       surgeryModel.SurgeryDate=this.surgery.SurgeryDate;
       surgeryModel.SurgeryCategory=this.surgery.SurgeryCategory;
 
-      if (surgeryModel.StartTime >= surgeryModel.EndTime) {
+      if (surgeryModel.StartTime <= surgeryModel.EndTime) {
         alert("Start Time can not be greater than or equal to end time!");
       } else {
         this.surgeryService.updateSurgery(surgeryModel);
