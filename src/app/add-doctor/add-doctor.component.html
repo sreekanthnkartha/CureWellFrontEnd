@@ -2,16 +2,22 @@
 <div class="container m-5 d-flex justify-content-center align-items-center">
     <div class="card text-center" style="width: 50%;">
         <div class="card-header" style="background-color: #96D2C8;">
-            <h4>Add Doctor</h4>
+            <strong>Add Doctor</strong> 
         </div>
         <form [formGroup]="AddDoctorForm" (ngSubmit)="onSubmit()">
-            <div class="card-body" style="height: 5cm;padding-top:10%;">
+            <div class="card-body" style="height: 5cm;padding-top:13%;">
 
-            <label class="form-label" for="DoctorName"><h6>Doctor Name: </h6></label>
-            <input class="form-control" type="text" name="DoctorName" id="DoctorName" formControlName="DoctorName">
+            <label for="DoctorName"><h6>Doctor Name: </h6></label>
+            <input type="text" name="DoctorName" id="DoctorName" formControlName="DoctorName" required>
+            <div class="text-danger"
+            *ngIf="!AddDoctorForm.controls?.['DoctorName'].valid && (AddDoctorForm.controls?.['DoctorName'].touched || AddDoctorForm.controls?.['DoctorName'].dirty)">
+
+            Doctor Name is required
+
+            </div>
         </div>
             <div class="card-footer" style="background-color: #96D2C8;">
-                <input class="btn" style="background-color: #348779; color: white;" type="submit" value="Submit">
+                <input class="btn" style="background-color: #348779; color: white;" type="submit" value="Submit" [disabled]="!AddDoctorForm.valid">
             </div>
         </form>
     </div>
