@@ -10,25 +10,22 @@ import { DoctorService } from 'src/Services/doctor.service';
   styleUrls: ['./view-doctor-by-specialization.component.css']
 })
 export class ViewDoctorBySpecializationComponent {
-  displayDoctors: Doctor[];
+  displayDoctors: Doctor[]; // Array to store the list of doctors
 
   constructor(private _doctorService: DoctorService, private router: Router, private _activatedRoute: ActivatedRoute) { }
 
-  DocID: number = 0;
-  DocName: string = "";
-  code:string;
+  DocID: number = 0; // Placeholder for Doctor ID
+  DocName: string = ""; // Placeholder for Doctor Name
+  code:string; // Placeholder for specialization code
 
   ngOnInit(): void {
-    this.code=this._activatedRoute.snapshot.paramMap.get('code') || '';//giving code parameter along with route path
-    console.log(this.code);
+    this.code=this._activatedRoute.snapshot.paramMap.get('code') || ''; // Retrieve the 'code' parameter from the route path
+
+    // Fetch doctors by specialization using DoctorService
     this._doctorService.getdoctorbyspecialization(this.code).subscribe(
-      (data)=>this.displayDoctors=data
+      (data) => this.displayDoctors = data // Assign the retrieved doctors to 'displayDoctors'
     );
-    if (this.displayDoctors) {
-      console.log("hello");
-    }
-    else {
-      console.log("error");
-    }
+
+    
   }
 }
