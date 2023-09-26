@@ -12,6 +12,7 @@ import { ViewspecializationComponent } from './view-specialization/viewspecializ
 import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specialization/view-doctor-by-specialization.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { HomeComponent } from './home/home.component';
+import { PagenotFoundErrorComponent } from './pagenot-found-error/pagenot-found-error.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     ViewDoctorBySpecializationComponent,
     AddDoctorComponent,
     AddDoctorComponent,
-    HomeComponent
+    HomeComponent,
+    PagenotFoundErrorComponent
   ],
   imports: [
     BrowserModule,
