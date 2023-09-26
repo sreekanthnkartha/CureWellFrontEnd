@@ -12,42 +12,47 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class UpdateSurgeryComponent {
 
-  updateSurgeryForm: FormGroup; 
-  surgery: SurgeryModel; 
-  surgeryService: SurgeryService; 
-  startTime: string; 
-  endTime: String; 
+  updateSurgeryForm: FormGroup;
+  surgery: SurgeryModel;
+  surgeryService: SurgeryService;
+  startTime: string;
+  endTime: String;
 
   // Function to convert decimal value to time string (HH:mm)
   convertDecimalToTime(decimalValue: number): string {
-    const hours = Math.floor(decimalValue);
-    const minutes = (decimalValue - hours) * 60;
-    return(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`);
+    let period:string = 'AM';
+    let hours:number  = Math.floor(decimalValue);
+    let minutes = Math.round((decimalValue - hours) * 100);
+    minutes = Math.min(minutes, 59);
+
+    if(hours>12){
+      hours = hours-12;
+      period='PM';
+    }
+    return(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}${period}`);
   }
 
   // Function to convert time string (HH:mm AM/PM) to decimal value
   convertTimeToDecimal(timeString: string): number {
     const [time, period] = timeString.split(' ');
     const [hours, minutes] = time.split(':').map(Number);
-    
-    let decimalValue = hours + minutes / 60;
-  
+
+    let decimalValue = hours + minutes / 100;
+
     if (period && period.toLowerCase() === 'pm') {
       decimalValue += 12;
     }
     console.log(decimalValue);
     return decimalValue;
   }
-  
-  
-  constructor(private ser: SurgeryService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { 
+
+  constructor(private ser: SurgeryService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
     this.surgeryService = ser;
   }
 
- 
   ngOnInit(): void {
     const surgeryId = +this.route.snapshot.paramMap.get('id');
-  
+
     // Fetch surgery details by ID
     this.surgeryService.getSurgeryById(surgeryId).subscribe(
       surgery => {
@@ -66,12 +71,12 @@ export class UpdateSurgeryComponent {
   initForm(): void {
     this.startTime = this.convertDecimalToTime(this.surgery.StartTime);
     this.endTime = this.convertDecimalToTime(this.surgery.EndTime);
-    
+
     this.updateSurgeryForm = this.fb.group({
       surgeryId: [{value: this.surgery.SurgeryId, disabled: true}], // Surgery ID (read-only)
       doctorID: [{value: this.surgery.DoctorID, disabled: true}], // Doctor ID (read-only)
-      startTime: [this.startTime, [Validators.required, Validators.min(0), Validators.max(24)]], // Start Time input field with validation
-      endTime: [this.endTime, [Validators.required, Validators.min(0), Validators.max(24)]], // End Time input field with validation
+      startTime: [this.startTime.slice(0,5), [Validators.required, Validators.min(0), Validators.max(24)]], // Start Time input field with validation
+      endTime: [this.endTime.slice(0,5), [Validators.required, Validators.min(0), Validators.max(24)]], // End Time input field with validation
       surgeryCategory: [{value: this.surgery.SurgeryCategory, disabled: true}], // Surgery Category (read-only)
       surgeryDate: [{value: this.surgery.SurgeryDate.toString().slice(0,10), disabled: true}] // Surgery Date (read-only)
     });
@@ -81,11 +86,10 @@ export class UpdateSurgeryComponent {
   submitForm() {
     if (this.updateSurgeryForm.valid) {
       const formValue = this.updateSurgeryForm.value;
-
       let surgeryModel: SurgeryModel = new SurgeryModel();
 
       // Assign form values to the surgery model
-      surgeryModel.SurgeryId = this.surgery.SurgeryId; 
+      surgeryModel.SurgeryId = this.surgery.SurgeryId;
       surgeryModel.DoctorID = this.surgery.DoctorID;
       surgeryModel.StartTime = this.convertTimeToDecimal(formValue.startTime);
       surgeryModel.EndTime = this.convertTimeToDecimal(formValue.endTime);
@@ -98,7 +102,6 @@ export class UpdateSurgeryComponent {
       } else {
         // Update surgery details
         this.surgeryService.updateSurgery(surgeryModel);
-        this.router.navigate(['/viewTodaysSurgery']); // Navigate to view today's surgeries
       }
     }
   }

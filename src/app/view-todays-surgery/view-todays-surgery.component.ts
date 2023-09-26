@@ -15,20 +15,20 @@ export class ViewTodaysSurgeryComponent {
   // Function to convert decimal value to formatted time string
   convertDecimalToTime(decimalValue: number): string {
     let hours = Math.floor(decimalValue);
-    const minutes = Math.round((decimalValue - hours) * 60);
+    const minutes = Math.round((decimalValue - hours) *100);
     let period = 'AM';
-  
+
     if (hours >= 12) {
       period = 'PM';
       if (hours > 12) {
         hours -= 12;
       }
     }
-  
+
     if (hours === 0) {
       hours = 12;
     }
-  
+    
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${period}`;
   }
   
