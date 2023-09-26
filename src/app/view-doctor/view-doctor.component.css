@@ -1,28 +1,33 @@
+/* Styling for cards */
 .card {
     border: none;
     border-radius: 15px;
     transition: all 1s;
     cursor: pointer;
-    box-shadow: 3px 5px 17px -4px #777777
+    box-shadow: 3px 5px 17px -4px #777777;
 }
 
-.apointment button {
+/* Styling for buttons */
+button {
     border-radius: 10px;
     border-color: #eee;
-    font-size: 14px
+    font-size: 14px;
 }
 
+/* Styling for star ratings */
 .ratings i {
     color: green;
     padding-right: 3px;
 }
 
-.row{
+/* Flexbox setup for rows */
+.row {
     display: flex;
     flex-wrap: wrap;
 }
 
-.doctors_list{
+/* Styling for the doctor's list container */
+.doctors_list {
     display: flex;
     background-color: #fff;
     margin-bottom: 30px;
@@ -32,10 +37,12 @@
     box-shadow: 3px 5px 17px -4px #777777;
 }
 
-.doctor_pic{
+/* Styling for the doctor's picture */
+.doctor_pic {
     margin-right: 10%;
 }
 
+/* Styling for h4 elements */
 h4 {
     font-size: 18px;
     font-weight: 700;

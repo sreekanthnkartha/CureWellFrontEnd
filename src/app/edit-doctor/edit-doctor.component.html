@@ -1,19 +1,28 @@
+<!-- Main container div -->
 <div class="main_div">
+    <!-- Card container -->
     <div class="card mt-5 mx-auto" style="width: 45%;">
+        <!-- Card header -->
         <div class="card-header" style="text-align: center; background-color: #96D2C8;">
+            <!-- Close button on the top-right corner -->
             <div style="position: absolute; right: 0; top: 0;">
                 <button class="btn" (click)="onCancel()"><i class="fa fa-close"></i></button>
             </div>
+            <!-- Title for the card -->
             <h2>Edit Doctor</h2>
         </div>
+        <!-- Card body -->
         <div class="card-body">
-            <form class="form-group" action="" [formGroup]="editDoctorForm" (ngSubmit)="onSubmit()">
+            <form class="form-group" action="" [formGroup]="editDoctorForm">
+                <!-- Label and input field for Doctor ID -->
                 <label for="DoctorID">Doctor ID</label>
                 <input class="form-control" type="number" name="DoctorID" formControlName="DoctorID" id="DoctorID">
                 <br>
         
+                <!-- Label and input field for Doctor Name -->
                 <label for="DoctorName">Doctor Name</label>
                 <input class="form-control" type="text" name="DoctorName" formControlName="DoctorName" id="DoctorName" required>
+                <!-- Error message for invalid DoctorName input -->
                 <span class="text-danger font-weight-bold" 
                     *ngIf="!editDoctorForm.controls?.['DoctorName'].valid && 
                     (editDoctorForm.controls?.['DoctorName'].dirty ||
@@ -22,12 +31,11 @@
                 </span>
             </form>
         </div>
+        <!-- Card footer -->
         <div class="card-footer" style="text-align: center; background-color: #96D2C8;">
+            <!-- Button to submit the form -->
             <div>
                 <button type="submit" [disabled]="!editDoctorForm.valid" class="btn edit_button btn-block" (click)="onSubmit()" style="background-color: #348779; color: white;" value="Submit">Edit</button>
-            </div>
-            <div>
-                
             </div>
         </div>
     </div>
