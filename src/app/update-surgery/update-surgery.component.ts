@@ -99,6 +99,7 @@ export class UpdateSurgeryComponent {
         alert("Start Time can not be greater than or equal to end time!");
       } else {
         this.surgeryService.updateSurgery(surgeryModel);
+        this.router.navigate(['/viewTodaysSurgery']);
       }
     }
   }
