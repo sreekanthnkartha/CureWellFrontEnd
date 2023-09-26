@@ -31,13 +31,28 @@ export class DoctorService {
   }
 
   // Function to edit doctor details in the API
-  editDoctorDetails(id: number, value: Doctor): void {
-    this._httpClient.put(this.apiUrl + "Doctors/" + id, value).subscribe();
+  editDoctorDetails(id: number, value: Doctor) {
+    this._httpClient.put<boolean>(this.apiUrl + "Doctors/" + id, value).subscribe(
+      (data: boolean) => {
+        if(data == false){
+          alert("Couldn't update the doctor");
+        }
+        else{
+          alert("Doctor updated successfully!");
+        }
+      }
+    );
   }
 
   // Function to delete a doctor from the API
-  DeleteDoctor(id: number): void {
-    this._httpClient.delete(this.apiUrl + "Doctors/" + id).subscribe();
+  DeleteDoctor(id: number) {
+    this._httpClient.delete<boolean>(this.apiUrl + "Doctors/" + id).subscribe(
+      (data: boolean) => {
+        if(data == false){
+          alert("Couldn't delete the doctor");
+        }
+      }
+    );
   }
 
   // Function to fetch doctors by specialization code from the API
