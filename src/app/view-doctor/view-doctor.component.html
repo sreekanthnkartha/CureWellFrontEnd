@@ -1,44 +1,52 @@
-<div class="row" *ngIf="displayDoctors.length >0">
-<div class="row">
-    <!-- Heading for the list of doctors -->
-    <div class="mb-2"> 
-        <h2>Doctors</h2>
-    </div>
-    <!-- Loop through each doctor in the displayDoctors array -->
-    <div class="col-md-6 col-lg-6" *ngFor="let pos of displayDoctors;">
-        <!-- Container for displaying doctor -->
-        <div class="doctors_list">
-            <!-- Container for displaying the doctor's picture -->
-            <div class="doctor_pic">
-                <!-- Display a default image if no custom image is provided -->
-                <img *ngIf="pos.Image == ''" src="assets\images\doctor.png" alt="image" width="125">
-                <!-- Display the custom image if available -->
-                <img *ngIf="pos.Image != ''" src={{pos.Image}} alt="image" width="125">
-            </div>
-            <!-- Container for displaying doctor's information -->
-            <div class="doctor_info">
-                <h4>Dr. {{pos.DoctorName}}</h4>
-                <h6>{{pos.DoctorID}}</h6>
-                <!-- Display a rating section with stars -->
-                <div class="ratings mt-1"> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
+<div class="row" *ngIf="displayDoctors.length > 0">
+    <div class="row">
+        <!-- Heading for the list of doctors -->
+        <div class="mb-2">
+            <h2>Doctors</h2>
+        </div>
+        <!-- Loop through each doctor in the displayDoctors array -->
+        <div class="col-md-6 col-lg-6" *ngFor="let pos of displayDoctors; let i=index;">
+            <a (click)="showHidePhone(i)" style="position: absolute; right: 7%; top: 3%;"><i class="fa fa-eye"
+                    aria-hidden="true"></i></a>
+            <!-- Container for displaying doctor -->
+            <div class="doctors_list">
+                <!-- Container for displaying the doctor's picture -->
+                <div class="doctor_pic">
+                    <!-- Display a default image if no custom image is provided -->
+                    <img *ngIf="pos.Image == ''" src="assets\images\doctor.png" alt="image" width="125">
+                    <!-- Display the custom image if available -->
+                    <img *ngIf="pos.Image != ''" src={{pos.Image}} alt="image" width="125" height="155">
                 </div>
-                <div class="mt-3" style="text-align: center;"> 
-                    <!-- Button to navigate to the EditDoctor page with DoctorID and DoctorName parameters -->
-                    <button class="btn btn-primary edit_button mr-2" [routerLink]="['/editDoctor', pos.DoctorID, pos.DoctorName]">Edit</button> 
-                    <!-- Button to trigger the removeDoc method with DoctorName and DoctorID parameters -->
-                    <button class="btn btn-danger remove_button" (click)="removeDoc(pos.DoctorName, pos.DoctorID)">Remove</button> 
+                <!-- Container for displaying doctor's information -->
+                <div class="doctor_info">
+                    <h4>Dr. {{pos.DoctorName}}</h4>
+                    <h6 class="mr-2">ID: {{pos.DoctorID}}</h6>
+                    <div class="phoneWithButton">
+                        <h6 *ngIf="pos.ShowPhone == true">Ph: {{pos.PhoneNo}}</h6>
+                    </div>
+                    <!-- Display a rating section with stars -->
+                    <div class="ratings mt-1">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="mt-2">
+                        <!-- Button to navigate to the EditDoctor page with DoctorID and DoctorName parameters -->
+                        <button class="btn btn-primary edit_button mr-2"
+                            [routerLink]="['/editDoctor', pos.DoctorID, pos.DoctorName]">Edit</button>
+                        <!-- Button to trigger the removeDoc method with DoctorName and DoctorID parameters -->
+                        <button class="btn btn-danger remove_button"
+                            (click)="removeDoc(pos.DoctorName, pos.DoctorID)">Remove</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-      <div class="center-container" *ngIf="displayDoctors.length == 0">
-        <div class="message-box">
-          <img src="assets\images\docout.png" alt="No doctors" class="no-doctor-image">
-          <p class="message">No Doctors are currently available</p>
-        </div>
-      </div>
+<div class="center-container" *ngIf="displayDoctors.length == 0">
+    <div class="message-box">
+        <img src="assets\images\docout.png" alt="No doctors" class="no-doctor-image">
+        <p class="message">No Doctors are currently available</p>
+    </div>
+</div>
