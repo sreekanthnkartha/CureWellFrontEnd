@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    width: 95%;
-    height: 700px;
+body, html{
+    height: 100%;
     background-image: url("src\\assets\\background.jpg");
     background-position: center;
     /* background-repeat: no-repeat; */
