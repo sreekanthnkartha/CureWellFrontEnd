@@ -1,28 +1,32 @@
 /* Custom styles for the table */
+
 .table-container {
-    margin-top: 20px;
-  }
-  
-  .table th,
-  .table td {
-    vertical-align: middle; /* Center content vertically */
-  }
-  
-  /* Style the "Edit" button */
-  .btn-edit {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.875rem;
-  }
-  
-  /* Add a bit of margin between the button and the cell content */
-  .table td .btn-edit {
-    margin-right: 5px;
-  }
-  
-  /* Add some custom styling for the "No Surgeries Scheduled" message */
-  .no-surgery-message {
-    font-size: 1.2rem;
-    color: #777;
-    margin-top: 20px;
-  }
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+/* Style for the "Edit" button */
+
+.btn-edit {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Add margin between the button and the cell content */
+.table td .btn-edit {
+  margin-right: 5px;
+}
+
+/* Custom styling for the "No Surgeries Scheduled" message */
+
+.no-surgery-message {
+  font-size: 1.2rem;
+  color: #777; 
+  margin-top: 20px; 
+}
+
   

@@ -1,36 +1,40 @@
+/* Styles for the carousel container */
 .carousel-container {
-    max-width: 900px;
-    height: 100%;
-    display: flex;
-    margin: auto;
-    margin-top: 5%;
-    overflow: hidden;
-  }
-  
-  
-  .carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .carousel-item {
-    flex-shrink: 0;
-    min-width: 100%;
-    display: flex; /* Make sure the image is centered within the item */
-    justify-content: center;
-  }
-  
-  .carousel-item img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* Maintain aspect ratio of the images */
-  }
-  
-  .active {
-    display: block;
-  }
-  
-  .carousel-item:not(.active) {
-    display: none;
-  }
-  
+  max-width: 900px; 
+  height: 100%; 
+  display: flex; 
+  margin: auto; 
+  margin-top: 5%; 
+  overflow: hidden; 
+}
+
+/* Styles for the carousel */
+.carousel {
+  display: flex; 
+  transition: transform 0.5s ease-in-out; 
+}
+
+/* Styles for each carousel item */
+.carousel-item {
+  flex-shrink: 0; 
+  min-width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+/* Styles for images within carousel items */
+.carousel-item img {
+  max-width: 100%; 
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Styles for the active carousel item */
+.active {
+  display: block; 
+}
+
+/* Styles for non-active carousel items */
+.carousel-item:not(.active) {
+  display: none; 
+}

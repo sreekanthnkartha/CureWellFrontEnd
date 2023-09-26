@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { SurgeryModel } from 'src/Models/surgery';
+import { SurgeryModel } from 'src/Models/surgery'; 
 import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurgeryService {
-  surgeryAPI:string="http://localhost:3000/api/Surgery";
 
+  surgeryAPI:string="http://localhost:3000/api/Surgery"; // API endpoint for surgeries
 
   constructor(private http:HttpClient) { }
 
+  // Function to get all surgeries scheduled for today
   getAllSurgeriesForToday():Observable<SurgeryModel[]>{
     return this.http.get<SurgeryModel[]>(this.surgeryAPI)
     .pipe(
@@ -24,18 +25,18 @@ export class SurgeryService {
     );
   }
 
+  // Function to get surgery details by ID
   getSurgeryById(surgeryId: number): Observable<SurgeryModel> {
     const url = `${this.surgeryAPI}/${surgeryId}`;
     return this.http.get<SurgeryModel>(url);
   }
 
+  // Function to update surgery details
   updateSurgery(s: SurgeryModel) {
     this.http.put(this.surgeryAPI + '/' + s.SurgeryId, s).subscribe(
       (data: any) => {
         if (data === true) {
-
           console.log('Surgery updated successfully');
-          
           alert('Surgery details updated successfully!');
         } else {
           console.error('Failed to update surgery');
