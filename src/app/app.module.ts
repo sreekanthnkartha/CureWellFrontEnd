@@ -9,10 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
 import { EditDoctorComponent } from './edit-doctor/edit-doctor.component';
-import { ViewspecializationComponent } from './viewspecialization/viewspecialization.component';
+import { ViewspecializationComponent } from './view-specialization/viewspecialization.component';
 import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specialization/view-doctor-by-specialization.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
-import { ShowAllSpecializationsComponent } from './show-all-specializations/show-all-specializations.component';
 import { HomeComponent } from './home/home.component';
 
 
@@ -22,14 +21,12 @@ import { HomeComponent } from './home/home.component';
     ViewTodaysSurgeryComponent,
     UpdateSurgeryComponent,
     AddDoctorComponent,
-    ShowAllSpecializationsComponent,
     ViewDoctorComponent,
     EditDoctorComponent,
     ViewspecializationComponent,
     ViewDoctorBySpecializationComponent,
     AddDoctorComponent,
     AddDoctorComponent,
-    ShowAllSpecializationsComponent,
     HomeComponent
   ],
   imports: [
