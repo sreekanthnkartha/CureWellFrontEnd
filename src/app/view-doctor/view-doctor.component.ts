@@ -20,6 +20,8 @@ export class ViewDoctorComponent {
     this._doctorService.getDoctors().subscribe(
       (data) => this.displayDoctors = data
     );
+    console.log(this.displayDoctors.length);
+    
   }
 
   removeDoc(name: string, id: number): void {
@@ -28,6 +30,8 @@ export class ViewDoctorComponent {
       let fnd: Doctor = this.displayDoctors.find(i => i.DoctorID == id);
       let ind: number = this.displayDoctors.indexOf(fnd);
       this.displayDoctors.splice(ind, 1);
+      
+      
     }
   }
 }

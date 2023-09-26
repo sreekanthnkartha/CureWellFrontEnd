@@ -40,3 +40,32 @@ h4 {
     font-size: 18px;
     font-weight: 700;
 }
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* background-color: #f2f2f2; Background color for the entire page */
+  }
+  
+  .message-box {
+    text-align: center;
+    /* background-color: #fff; */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .no-doctor-image {
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .message {
+    font-size: 24px;
+    color: #333;
+    margin-top: 10px;
+  }
