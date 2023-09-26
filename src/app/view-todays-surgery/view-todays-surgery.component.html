@@ -6,22 +6,16 @@
       </div>
       <div class="card-body">
         <h6>Doctor ID: {{ surgery.DoctorID }}</h6>
-        <h6>Start Time: {{surgery.StartTime}}</h6>
-        <h6>End Time: {{surgery.EndTime}}</h6>
+        <h6>Start Time: {{convertDecimalToTime(surgery.StartTime)}}</h6>
+        <h6>End Time: {{convertDecimalToTime(surgery.EndTime)}}</h6>
         <h6>Surgery Category: {{surgery.SurgeryCategory}}</h6>
-        <h6>Surgery Date: {{surgery.SurgeryDate}}</h6>
+        <h6>Surgery Date: {{surgery.SurgeryDate.toString().slice(0,10)}}</h6>
       </div>
-
       <div class="card-footer d-flex justify-content-center align-items-center" style="background-color: #96D2C8;">
         <button class="btn btn-edit" style="background-color: #348779; color: white;" (click)="editSurgery(surgery)">Edit Surgery Time</button>
       </div>
-
-      
-
     </div>
-
   </div>
-
 </div>
 
 <!-- <div class="container table-container">
