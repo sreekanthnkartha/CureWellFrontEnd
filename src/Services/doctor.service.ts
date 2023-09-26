@@ -30,7 +30,7 @@ export class DoctorService {
   }
 
   DeleteDoctor(id:number){
-    this._httpClient.delete(this.apiUrl+ "Doctors/"+id).subscribe();
+    this._httpClient.delete("http://localhost:3000/api/Doctors/"+id).subscribe();
   }
 
   getdoctorbyspecialization(code:string):Observable<Doctor[]> {
