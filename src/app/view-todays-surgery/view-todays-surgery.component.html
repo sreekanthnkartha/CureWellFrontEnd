@@ -1,17 +1,16 @@
-<div class="row">
-  <div class="mb-2"> 
-    <h2>Today's Surgeries</h2> 
+<div class="row" >
+  <div class="mb-2">
+    <h2>Today's Surgeries</h2>
   </div>
-  
   <!-- Loop through surgeries in TodaysSurgeryList -->
-  <div class="col-12 col-lg-6 col-md-6" *ngFor="let surgery of TodaysSurgeryList" >
+  <div class="col-12 col-lg-6 col-md-6" *ngFor="let surgery of TodaysSurgeryList">
     <div class="card m-3 " style="display: flex;"> <!-- Card for each surgery -->
-    
+
       <!-- Card header with Surgery ID -->
       <div class="card-header d-flex justify-content-center align-items-center" style="background-color: #96D2C8;">
-        <strong>Surgery ID: {{ surgery.SurgeryId }}</strong> 
+        <strong>Surgery ID: {{ surgery.SurgeryId }}</strong>
       </div>
-      
+
       <!-- Card body with surgery details -->
       <div class="card-body">
         <h6>Doctor ID: {{ surgery.DoctorID }}</h6> <!-- Doctor's ID -->
@@ -20,12 +19,19 @@
         <h6>Surgery Category: {{surgery.SurgeryCategory}}</h6> <!-- Category of surgery -->
         <h6>Surgery Date: {{surgery.SurgeryDate.toString().slice(0,10)}}</h6> <!-- Date of surgery -->
       </div>
-      
+
       <!-- Card footer with button to edit surgery time -->
       <div class="card-footer d-flex justify-content-center align-items-center" style="background-color: #96D2C8;">
-        <button class="btn btn-edit" style="background-color: #348779; color: white;" (click)="editSurgery(surgery)">Edit Surgery Time</button>
+        <button class="btn btn-edit" style="background-color: #348779; color: white;"
+          (click)="editSurgery(surgery)">Edit Surgery Time</button>
       </div>
-      
+
     </div>
+  </div>
+</div>
+<div class="center-container" *ngIf="TodaysSurgeryList.length == 0">
+  <div class="message-box">
+    <img src="assets\images\nosurgery.png" alt="No doctors" class="no-doctor-image">
+    <p class="message">No Surgeries are Scheduled for Today</p>
   </div>
 </div>
