@@ -8,7 +8,7 @@ import { DoctorService } from 'src/Services/doctor.service';
   templateUrl: './add-doctor.component.html',
   styleUrls: ['./add-doctor.component.css']
 })
-export class AddDoctorComponent implements OnInit {
+export class AddDoctorComponent {
 
   AddDoctorForm=new FormGroup({
     DoctorName:new FormControl()
@@ -16,15 +16,9 @@ export class AddDoctorComponent implements OnInit {
 
   docService:DoctorService;
 
-  /**
-   *
-   */
   constructor(private doc:DoctorService) {
     this.docService=doc
     
-  }
-  ngOnInit(): void {
-    // throw new Error('Method not implemented.');
   }
 
   onSubmit(){
