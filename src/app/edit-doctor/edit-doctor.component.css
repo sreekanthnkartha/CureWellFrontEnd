@@ -1,22 +1,4 @@
-.bg-img {
+.edit_button{
+    width: 30%;
     margin: auto;
-    background-color: aqua;
-    width: 75%;
-    /* The image used */
-    background-image: url("https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg");
-    min-height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.container {
-    margin: auto;
-    max-width: 300px;
-    background-color: white;
-}
-
-.main_div{
-    margin-left: 7%;
 }

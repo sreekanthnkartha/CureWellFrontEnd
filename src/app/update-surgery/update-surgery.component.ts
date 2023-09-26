@@ -25,6 +25,27 @@ export class UpdateSurgeryComponent {
   updateSurgeryForm:FormGroup;
   surgery: SurgeryModel; 
   surgeryService:SurgeryService;
+  startTime:string;
+  endTime:String;
+
+  convertDecimalToTime(decimalValue: number):string {
+    const hours = Math.floor(decimalValue);
+    const minutes = (decimalValue - hours) * 60;
+    return(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`);
+  }
+
+  convertTimeToDecimal(timeString: string): number {
+    const [time, period] = timeString.split(' ');
+    const [hours, minutes] = time.split(':').map(Number);
+    
+    let decimalValue = hours + minutes / 60;
+  
+    if (period && period.toLowerCase() === 'pm') {
+      decimalValue += 12;
+    }
+    console.log(decimalValue);
+    return decimalValue;
+  }
   
 
   constructor(private ser:SurgeryService,private fb: FormBuilder,private route: ActivatedRoute,private router: Router) { 
@@ -37,7 +58,7 @@ export class UpdateSurgeryComponent {
     this.surgeryService.getSurgeryById(surgeryId).subscribe(
       surgery => {
         this.surgery = surgery;
-        
+        console.log(this.surgery);
         this.initForm();
       },
       error => {
@@ -48,12 +69,14 @@ export class UpdateSurgeryComponent {
   }
 
   initForm(): void {
+    this.startTime =this.convertDecimalToTime(this.surgery.StartTime);
+    this.endTime = this.convertDecimalToTime(this.surgery.EndTime);
     
     this.updateSurgeryForm = this.fb.group({
       surgeryId: [{value: this.surgery.SurgeryId, disabled: true}],
       doctorID: [{value:this.surgery.DoctorID,disabled: true}],
-      startTime: [this.surgery.StartTime, [Validators.required, Validators.min(0), Validators.max(24)]],
-      endTime: [this.surgery.EndTime, [Validators.required, Validators.min(0), Validators.max(24)]],
+      startTime: [this.startTime, [Validators.required, Validators.min(0), Validators.max(24)]],
+      endTime: [this.endTime, [Validators.required, Validators.min(0), Validators.max(24)]],
       surgeryCategory: [{value:this.surgery.SurgeryCategory,disabled:true}],
       surgeryDate: [{value:this.surgery.SurgeryDate.toString().slice(0,10),disabled:true}]
     });
@@ -67,12 +90,12 @@ export class UpdateSurgeryComponent {
 
       surgeryModel.SurgeryId=this.surgery.SurgeryId; 
       surgeryModel.DoctorID=this.surgery.DoctorID;
-      surgeryModel.StartTime=formValue.startTime;
-      surgeryModel.EndTime=formValue.endTime;
+      surgeryModel.StartTime=this.convertTimeToDecimal(formValue.startTime);
+      surgeryModel.EndTime=this.convertTimeToDecimal(formValue.endTime);
       surgeryModel.SurgeryDate=this.surgery.SurgeryDate;
       surgeryModel.SurgeryCategory=this.surgery.SurgeryCategory;
 
-      if (surgeryModel.StartTime <= surgeryModel.EndTime) {
+      if (surgeryModel.StartTime >= surgeryModel.EndTime) {
         alert("Start Time can not be greater than or equal to end time!");
       } else {
         this.surgeryService.updateSurgery(surgeryModel);
