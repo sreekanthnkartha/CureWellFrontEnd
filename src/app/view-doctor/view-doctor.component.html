@@ -60,7 +60,8 @@
     <div class="col-md-6 col-lg-6" *ngFor="let pos of displayDoctors;">
         <div class="doctors_list">
             <div class="doctor_pic">
-                <img src="/assets/doctor.png" alt="image" width="100">
+                <img *ngIf="pos.Image == ''" src="assets\images\doctor.png" alt="image" width="125">
+                <img *ngIf="pos.Image != ''" src={{pos.Image}} alt="image" width="125">
             </div>
             <div class="doctor_info">
                 <h4>Dr. {{pos.DoctorName}}</h4>
