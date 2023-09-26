@@ -12,18 +12,20 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class UpdateSurgeryComponent {
 
-  updateSurgeryForm:FormGroup;
+  updateSurgeryForm: FormGroup; 
   surgery: SurgeryModel; 
-  surgeryService:SurgeryService;
-  startTime:string;
-  endTime:String;
+  surgeryService: SurgeryService; 
+  startTime: string; 
+  endTime: String; 
 
-  convertDecimalToTime(decimalValue: number):string {
+  // Function to convert decimal value to time string (HH:mm)
+  convertDecimalToTime(decimalValue: number): string {
     const hours = Math.floor(decimalValue);
     const minutes = (decimalValue - hours) * 60;
     return(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`);
   }
 
+  // Function to convert time string (HH:mm AM/PM) to decimal value
   convertTimeToDecimal(timeString: string): number {
     const [time, period] = timeString.split(' ');
     const [hours, minutes] = time.split(':').map(Number);
@@ -37,19 +39,21 @@ export class UpdateSurgeryComponent {
     return decimalValue;
   }
   
-
-  constructor(private ser:SurgeryService,private fb: FormBuilder,private route: ActivatedRoute,private router: Router) { 
-    this.surgeryService =ser;
+  
+  constructor(private ser: SurgeryService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { 
+    this.surgeryService = ser;
   }
 
+ 
   ngOnInit(): void {
     const surgeryId = +this.route.snapshot.paramMap.get('id');
   
+    // Fetch surgery details by ID
     this.surgeryService.getSurgeryById(surgeryId).subscribe(
       surgery => {
-        this.surgery = surgery;
+        this.surgery = surgery; // Assign fetched surgery details
         console.log(this.surgery);
-        this.initForm();
+        this.initForm(); // Initialize the update form with surgery details
       },
       error => {
         console.error('Error fetching surgery:', error);
@@ -58,42 +62,48 @@ export class UpdateSurgeryComponent {
     );
   }
 
+  // Function to initialize the update form with surgery details
   initForm(): void {
-    this.startTime =this.convertDecimalToTime(this.surgery.StartTime);
+    this.startTime = this.convertDecimalToTime(this.surgery.StartTime);
     this.endTime = this.convertDecimalToTime(this.surgery.EndTime);
     
     this.updateSurgeryForm = this.fb.group({
-      surgeryId: [{value: this.surgery.SurgeryId, disabled: true}],
-      doctorID: [{value:this.surgery.DoctorID,disabled: true}],
-      startTime: [this.startTime, [Validators.required, Validators.min(0), Validators.max(24)]],
-      endTime: [this.endTime, [Validators.required, Validators.min(0), Validators.max(24)]],
-      surgeryCategory: [{value:this.surgery.SurgeryCategory,disabled:true}],
-      surgeryDate: [{value:this.surgery.SurgeryDate.toString().slice(0,10),disabled:true}]
+      surgeryId: [{value: this.surgery.SurgeryId, disabled: true}], // Surgery ID (read-only)
+      doctorID: [{value: this.surgery.DoctorID, disabled: true}], // Doctor ID (read-only)
+      startTime: [this.startTime, [Validators.required, Validators.min(0), Validators.max(24)]], // Start Time input field with validation
+      endTime: [this.endTime, [Validators.required, Validators.min(0), Validators.max(24)]], // End Time input field with validation
+      surgeryCategory: [{value: this.surgery.SurgeryCategory, disabled: true}], // Surgery Category (read-only)
+      surgeryDate: [{value: this.surgery.SurgeryDate.toString().slice(0,10), disabled: true}] // Surgery Date (read-only)
     });
   }
 
+  // Function to handle form submission
   submitForm() {
     if (this.updateSurgeryForm.valid) {
       const formValue = this.updateSurgeryForm.value;
 
-      let surgeryModel:SurgeryModel = new SurgeryModel();
+      let surgeryModel: SurgeryModel = new SurgeryModel();
 
-      surgeryModel.SurgeryId=this.surgery.SurgeryId; 
-      surgeryModel.DoctorID=this.surgery.DoctorID;
-      surgeryModel.StartTime=this.convertTimeToDecimal(formValue.startTime);
-      surgeryModel.EndTime=this.convertTimeToDecimal(formValue.endTime);
-      surgeryModel.SurgeryDate=this.surgery.SurgeryDate;
-      surgeryModel.SurgeryCategory=this.surgery.SurgeryCategory;
+      // Assign form values to the surgery model
+      surgeryModel.SurgeryId = this.surgery.SurgeryId; 
+      surgeryModel.DoctorID = this.surgery.DoctorID;
+      surgeryModel.StartTime = this.convertTimeToDecimal(formValue.startTime);
+      surgeryModel.EndTime = this.convertTimeToDecimal(formValue.endTime);
+      surgeryModel.SurgeryDate = this.surgery.SurgeryDate;
+      surgeryModel.SurgeryCategory = this.surgery.SurgeryCategory;
 
+      // Validate start time and end time
       if (surgeryModel.StartTime >= surgeryModel.EndTime) {
         alert("Start Time can not be greater than or equal to end time!");
       } else {
+        // Update surgery details
         this.surgeryService.updateSurgery(surgeryModel);
-        this.router.navigate(['/viewTodaysSurgery']);
+        this.router.navigate(['/viewTodaysSurgery']); // Navigate to view today's surgeries
       }
     }
   }
 
+  // Function to navigate back to view today's surgeries
   goBack() {
     this.router.navigate(['/viewTodaysSurgery']);
   }

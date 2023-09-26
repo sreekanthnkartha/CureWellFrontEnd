@@ -10,58 +10,69 @@
     box-shadow: 3px 5px 17px -4px #777777
 }
 
+/* Styles for buttons inside the 'apointment' class */
 .apointment button {
-    border-radius: 10px;
-    border-color: #eee;
-    font-size: 14px
+    border-radius: 10px; 
+    border-color: #eee; 
+    font-size: 14px; 
 }
 
+/* Styles for star ratings icons */
 .ratings i {
-    color: green;
-    padding-right: 3px;
+    color: green; 
+    padding-right: 3px; 
 }
 
+/* Custom width for elements with class 'IDWidth' */
 .IDWidth{
-    width: 15%;
+    width: 15%; 
 }
 
+/* Custom width for elements with class 'NameWidth' */
 .NameWidth{
-    width: 55%;
+    width: 55%; 
 }
 
+/* Custom width for elements with class 'EditWidth' */
 .EditWidth{
-    width: 15%;
+    width: 15%; 
 }
 
+/* Custom width for elements with class 'RemoveWidth' */
 .RemoveWidth{
-    width: 15%;
+    width: 15%; 
 }
 
+/* Flexbox settings for elements with class 'row' */
 .row{
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; 
+    flex-wrap: wrap; 
 }
 
+/* Styles for elements with class 'doctors_list' */
 .doctors_list{
-    display: flex;
-    background-color: #fff;
-    margin-bottom: 30px;
-    border: 1px solid #ebebeb;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 3px 5px 17px -4px #777777;
+    display: flex; 
+    background-color: #fff; 
+    margin-bottom: 30px; 
+    border: 1px solid #ebebeb; 
+    border-radius: 10px; 
+    padding: 30px; 
+    box-shadow: 3px 5px 17px -4px #777777; 
 }
 
+/* Styles for elements with class 'doctor_pic' */
 .doctor_pic{
-    width: 131px;
-    margin-right: 20px;
+    width: 131px; 
+    margin-right: 20px; 
 }
 
+/* Styles for h4 elements */
 h4 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 18px; 
+    font-weight: 700; 
 }
 
+/* Styles for elements with class 'but' */
 .but{
     position: absolute;
     color: red;
@@ -69,3 +80,32 @@ h4 {
     top: 3%;
     right: 3%;
 }
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* background-color: #f2f2f2; Background color for the entire page */
+  }
+  
+  .message-box {
+    text-align: center;
+    /* background-color: #fff; */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .no-doctor-image {
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .message {
+    font-size: 24px;
+    color: #333;
+    margin-top: 10px;
+  }

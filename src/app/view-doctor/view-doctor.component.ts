@@ -20,6 +20,8 @@ export class ViewDoctorComponent {
     this._doctorService.getDoctors().subscribe(
       (data) => this.displayDoctors = data
     );
+    console.log(this.displayDoctors.length);
+    
   }
 
   // Method to remove a doctor by ID
@@ -35,6 +37,8 @@ export class ViewDoctorComponent {
       // Get the index of the found doctor and remove it from the list
       let ind: number = this.displayDoctors.indexOf(fnd);
       this.displayDoctors.splice(ind, 1);
+      
+      
     }
   }
 }
