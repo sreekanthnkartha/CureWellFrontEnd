@@ -22,6 +22,7 @@ const routes: Routes = [
   {path:'addDoctor',component:AddDoctorComponent},
   {path:'showAllSpecializations',component:ShowAllSpecializationsComponent},
   { path: 'Home', component: HomeComponent },
+  { path: '', redirectTo: 'Home', pathMatch: 'full' },
 ];
 
 @NgModule({
