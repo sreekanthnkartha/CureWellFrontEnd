@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SurgeryService {
-  
+
   surgeryAPI:string="http://localhost:3000/api/Surgery";
 
 

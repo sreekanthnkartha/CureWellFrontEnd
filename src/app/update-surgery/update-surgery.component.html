@@ -18,8 +18,8 @@
           <input type="number" class="form-control" id="doctorID" formControlName="doctorID" required>
         </div>
         <div class="mb-3">
-          <label for="startTime" class="form-label"><strong>Start Time(24 Hour Format)</strong></label>
-          <input type="number" class="form-control" id="startTime" formControlName="startTime" required >
+          <label for="startTime" class="form-label"><strong>Start Time</strong></label>
+          <input type="time" class="form-control" id="startTime" formControlName="startTime" required >
           <div *ngIf="updateSurgeryForm.get('startTime').hasError('required') && updateSurgeryForm.get('startTime').dirty" class ="errormsg" >
             Start time is required.
           </div>
@@ -31,8 +31,8 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="endTime" class="form-label"><strong>End Time(24 Hour Format)</strong>)</label>
-          <input type="number" class="form-control" id="endTime" formControlName="endTime" required>
+          <label for="endTime" class="form-label"><strong>End Time</strong>)</label>
+          <input type="time" class="form-control" id="endTime" formControlName="endTime" required>
           <div *ngIf="updateSurgeryForm.get('endTime').hasError('required') && updateSurgeryForm.get('endTime').dirty" class ="errormsg">
             End time is required.
           </div>
