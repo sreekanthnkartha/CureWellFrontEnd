@@ -35,3 +35,9 @@
         </div>
     </div>
 </div>
+      <div class="center-container" *ngIf="displayDoctors.length == 0">
+        <div class="message-box">
+          <img src="assets\images\docout.png" alt="No doctors" class="no-doctor-image">
+          <p class="message">No Doctors are currently available</p>
+        </div>
+      </div>
