@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 
 export class ViewDoctorComponent {
   // Array to store the displayed doctors
-  displayDoctors: Doctor[];
+  displayDoctors: Doctor[] = [];
+
+  // Boolean for show phone
+  showPhone: boolean;
 
   constructor(private _doctorService: DoctorService, private router: Router) { }
 
@@ -21,7 +24,12 @@ export class ViewDoctorComponent {
       (data) => this.displayDoctors = data
     );
     console.log(this.displayDoctors.length);
+  }
+
+  showHidePhone(index: number){
+    console.log(index);
     
+    this.displayDoctors[index].ShowPhone = !this.displayDoctors[index].ShowPhone;
   }
 
   // Method to remove a doctor by ID
