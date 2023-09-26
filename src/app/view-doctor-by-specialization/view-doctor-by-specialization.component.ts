@@ -19,7 +19,7 @@ export class ViewDoctorBySpecializationComponent {
   code:string;
 
   ngOnInit(): void {
-    this.code=this._activatedRoute.snapshot.paramMap.get('code') || '';
+    this.code=this._activatedRoute.snapshot.paramMap.get('code') || '';//giving code parameter along with route path
     console.log(this.code);
     this._doctorService.getdoctorbyspecialization(this.code).subscribe(
       (data)=>this.displayDoctors=data
