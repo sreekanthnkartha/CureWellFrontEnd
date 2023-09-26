@@ -15,13 +15,13 @@
                     <!-- Display a default image if no custom image is provided -->
                     <img *ngIf="pos.Image == ''" src="assets\images\doctor.png" alt="image" width="125">
                     <!-- Display the custom image if available -->
-                    <img *ngIf="pos.Image != ''" src={{pos.Image}} alt="image" width="125" height="155">
+                    <img *ngIf="pos.Image != ''" src={{pos.Image}} alt="image" width="125">
                 </div>
                 <!-- Container for displaying doctor's information -->
                 <div class="doctor_info">
                     <h4>Dr. {{pos.DoctorName}}</h4>
-                    <h6 class="mr-2">ID: {{pos.DoctorID}}</h6>
                     <div class="phoneWithButton">
+                        <h6 class="mr-4">ID: {{pos.DoctorID}}</h6>
                         <h6 *ngIf="pos.ShowPhone == true">Ph: {{pos.PhoneNo}}</h6>
                     </div>
                     <!-- Display a rating section with stars -->
