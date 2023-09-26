@@ -1,0 +1,40 @@
+.carousel-container {
+    max-width: 900px;
+    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item {
+    flex-shrink: 0;
+    min-width: 100%;
+    display: flex; /* Make sure the image is centered within the item */
+    justify-content: center;
+  }
+  
+  .carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Maintain aspect ratio of the images */
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  .carousel-item:not(.active) {
+    display: none;
+  }
+  
