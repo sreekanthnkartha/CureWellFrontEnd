@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Doctor } from 'src/Models/doctor';
 import { DoctorService } from 'src/Services/doctor.service';
 
@@ -10,20 +10,25 @@ import { DoctorService } from 'src/Services/doctor.service';
 })
 export class AddDoctorComponent implements OnInit {
 
-  AddDoctorForm=new FormGroup({
-    DoctorName:new FormControl()
-  })
+
+  AddDoctorForm:FormGroup
+  // AddDoctorForm=new FormGroup({
+  //   DoctorName:new FormControl()
+  // })
 
   docService:DoctorService;
 
   /**
    *
    */
-  constructor(private doc:DoctorService) {
+  constructor(private doc:DoctorService,private fb:FormBuilder) {
     this.docService=doc
     
   }
   ngOnInit(): void {
+    this.AddDoctorForm=this.fb.group({
+      DoctorName:['',[Validators.required]]
+    })
     // throw new Error('Method not implemented.');
   }
 
