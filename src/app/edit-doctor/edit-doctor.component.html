@@ -30,13 +30,18 @@
                 <br>
         
                 <label for="DoctorName">Doctor Name</label>
-                <input class="form-control" type="text" name="DoctorName" formControlName="DoctorName" id="DoctorName">
+                <input class="form-control" type="text" name="DoctorName" formControlName="DoctorName" id="DoctorName" required>
+                <span class="text-danger font-weight-bold" 
+                    *ngIf="!editDoctorForm.controls?.['DoctorName'].valid && 
+                    (editDoctorForm.controls?.['DoctorName'].dirty ||
+                    editDoctorForm.controls?.['DoctorName'].touched)">
+                    Doctor name is a required field
+                </span>
             </form>
         </div>
         <div class="card-footer" style="text-align: center; background-color: #96D2C8;">
             <div>
-                <button type="submit" class="btn edit_button btn-block" style="background-color: #348779; color: white;" value="Submit">Edit</button>
-                <!-- <button class="btn btn-secondary submit_button btn-block" value (click)="onCancel()">Cancel</button> -->
+                <button type="submit" [disabled]="!editDoctorForm.valid" class="btn edit_button btn-block" (click)="onSubmit()" style="background-color: #348779; color: white;" value="Submit">Edit</button>
             </div>
             <div>
                 
