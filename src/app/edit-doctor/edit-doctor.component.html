@@ -23,7 +23,7 @@
                 <label for="DoctorName">Doctor Name</label>
                 <input class="form-control" type="text" name="DoctorName" formControlName="DoctorName" id="DoctorName" required>
                 <!-- Error message for invalid DoctorName input -->
-                <span class="text-danger font-weight-bold" 
+                <span class="text-danger" 
                     *ngIf="!editDoctorForm.controls?.['DoctorName'].valid && 
                     (editDoctorForm.controls?.['DoctorName'].touched || 
                     editDoctorForm.controls?.['DoctorName'].dirty)">
@@ -33,13 +33,20 @@
 
                 <!-- Label and input field for Phone No -->
                 <label for="PhoneNo">Phone No</label>
-                <input class="form-control" type="string" name="PhoneNo" formControlName="PhoneNo" id="PhoneNo">
+                <input class="form-control" type="string" name="PhoneNo" formControlName="PhoneNo" id="PhoneNo" minlength="10" maxlength="10">
                 <!-- Error message for invalid Phone Number input -->
-                <span class="text-danger font-weight-bold" 
-                    *ngIf="!editDoctorForm.controls?.['PhoneNo'].valid && 
-                    (editDoctorForm.controls?.['PhoneNo'].touched || 
-                    editDoctorForm.controls?.['PhoneNo'].dirty)">
-                    Phone Number is required and must be numbers
+                <span class="text-danger" 
+                    *ngIf="editDoctorForm.get('PhoneNo').hasError('required') && 
+                    (editDoctorForm.get('PhoneNo').dirty || editDoctorForm.get('PhoneNo').touched)">
+                    Phone Number is required
+                </span>
+                <span class="text-danger" 
+                    *ngIf="editDoctorForm.get('PhoneNo').hasError('pattern')">
+                    Phone Number must be digits
+                </span>
+                <span class="text-danger" 
+                    *ngIf="editDoctorForm.get('PhoneNo').hasError('minlength')">
+                    Phone Number must have 10 digits
                 </span>
                 <br>
             </form>

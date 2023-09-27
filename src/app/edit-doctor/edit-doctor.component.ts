@@ -40,7 +40,7 @@ export class EditDoctorComponent {
   initForm(): void{
     // console.log("fgfg"+this.docID+this.docName+this.phoneNo);
     this.editDoctorForm = this.fb.group({
-      DoctorID: [this.docID],
+      DoctorID: [{value: this.docID, disabled: true}],
       DoctorName:['',[Validators.required]],
       PhoneNo:['',[Validators.required,Validators.pattern(/^[0-9]*$/)]]
     });

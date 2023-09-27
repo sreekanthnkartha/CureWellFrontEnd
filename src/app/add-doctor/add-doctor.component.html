@@ -20,7 +20,7 @@
                 </div>
                 <!-- Label and input field for Phone Number -->
                 <label for="PhoneNo">Phone Number: </label>
-                <input class="form-control" type="text" name="PhoneNo" id="PhoneNo" formControlName="PhoneNo" required maxlength="10">
+                <input class="form-control" type="text" name="PhoneNo" id="PhoneNo" formControlName="PhoneNo" required minlength="10" maxlength="10">
                 <!-- Error message for Phone Number input validation -->
                 <div class="text-danger"
                     *ngIf="AddDoctorForm.get('PhoneNo').hasError('required')&& (AddDoctorForm.get('PhoneNo').dirty || AddDoctorForm.get('PhoneNo').touched)">
@@ -28,7 +28,11 @@
                 </div>
                 <div class="text-danger"
                     *ngIf="AddDoctorForm.get('PhoneNo').hasError('pattern')">
-                    Phone Number must be integers
+                    Phone Number must be digits
+                </div>
+                <div class="text-danger"
+                    *ngIf="AddDoctorForm.get('PhoneNo').hasError('minlength')">
+                    Phone Number must have 10 digits
                 </div>
             </div>
 
