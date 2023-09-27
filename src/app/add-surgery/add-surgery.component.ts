@@ -14,6 +14,8 @@ import { SurgeryService } from 'src/Services/surgery.service';
 })
 export class AddSurgeryComponent {
 
+
+  // Declare class properties
   addSurgeryForm: FormGroup;
   surgeryModel: SurgeryModel = new SurgeryModel();
   surgery: SurgeryModel;
@@ -23,37 +25,34 @@ export class AddSurgeryComponent {
   displayDoctors: Doctor[];
   displayspecialization: Doctorspecialization[];
 
-  convertDecimalToTime(decimalValue: number): string {
-    let period:string = 'AM';
-    let hours:number  = Math.floor(decimalValue);
-    let minutes = Math.round((decimalValue - hours) * 100);
-    minutes = Math.min(minutes, 59);
 
-    if(hours>12){
-      hours = hours-12;
-      period='PM';
-    }
 
-    return(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}${period}`);
-  }
 
+  // Function to convert time string to decimal value
   convertTimeToDecimal(timeString: string): number {
     const [time, period] = timeString.split(' ');
     const [hours, minutes] = time.split(':').map(Number);
+
 
     let decimalValue = hours + minutes / 100;
     if (period && period.toLowerCase() === 'pm') {
       decimalValue += 12;
     }
-    console.log(decimalValue);
+
+
     return decimalValue;
   }
 
+
+  // Constructor with dependency injection
   constructor(private ser: SurgeryService, private fb: FormBuilder, private router: Router,private _doctorService: DoctorService) {
     this.surgeryService = ser;
   }
 
+
+  // Angular lifecycle hook when component is initialized
   ngOnInit(): void {
+    // Initialize form and fetch data from services
     this.addSurgeryForm=this.fb.group({
       DoctorID: [''],
       StartTime: ['', [Validators.required, Validators.min(0), Validators.max(24)]],
@@ -62,9 +61,11 @@ export class AddSurgeryComponent {
       SurgeryDate: ['']
     });
 
+
     this._doctorService.getDoctorSpec().subscribe(
       (data)=>this.displayspecialization=data
     );
+
 
     this._doctorService.getDoctors().subscribe(
       (data) => {
@@ -76,16 +77,19 @@ export class AddSurgeryComponent {
     );
   }
 
+
+  // Function to handle form submission
   submitForm() {
-    console.log(this.addSurgeryForm.value);
     if (this.addSurgeryForm.valid) {
       const formValue = this.addSurgeryForm.value;
+
 
       this.surgeryModel.DoctorID = this.addSurgeryForm.value.DoctorID;
       this.surgeryModel.StartTime = this.convertTimeToDecimal(formValue.StartTime);
       this.surgeryModel.EndTime = this.convertTimeToDecimal(formValue.EndTime);
       this.surgeryModel.SurgeryDate = this.addSurgeryForm.value.SurgeryDate;
       this.surgeryModel.SurgeryCategory = this.addSurgeryForm.value.SurgeryCategory;
+
 
       if (this.surgeryModel.StartTime >= this.surgeryModel.EndTime) {
         alert("Start Time can not be greater than or equal to end time!");
@@ -95,6 +99,8 @@ export class AddSurgeryComponent {
     }
   }
 
+
+  // Function to navigate back
   goBack() {
     this.router.navigate(['/viewTodaysSurgery']);
   }

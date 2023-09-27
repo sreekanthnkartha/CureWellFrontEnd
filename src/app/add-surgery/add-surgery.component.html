@@ -7,7 +7,7 @@
       <h4>Add Surgery</h4>
     </div>
 
-    <!-- Form for updating surgery details -->
+    <!-- Form for adding surgery details -->
     <form (ngSubmit)="submitForm()" [formGroup]="addSurgeryForm">
       <div class="card-body">
  
@@ -17,8 +17,6 @@
           <select formControlName="DoctorID" id="doctorID" class="custom-dropdown" required>
             <option *ngFor="let doctor of displayDoctors" [value]="doctor.DoctorID">{{ doctor.DoctorID }}</option>
           </select>
-
-          <!-- <input type="number" class="form-control" id="DoctorID" formControlName="DoctorID" required> -->
         </div>
 
         <!-- Start Time input field -->
@@ -63,8 +61,6 @@
           <select formControlName="SurgeryCategory" id="SurgeryCategory" class="custom-dropdown" :hover required>
             <option *ngFor="let spec of displayspecialization" [value]="spec.SpecializationCode">{{ spec.SpecializationCode }}</option>
           </select>
-
-          <!-- <input type="text" class="form-control" id="SurgeryCategory" formControlName="SurgeryCategory" required> -->
         </div>
 
         <!-- Surgery Date input field -->
