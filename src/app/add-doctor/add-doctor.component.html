@@ -1,28 +1,35 @@
 
 <div class="container m-5 d-flex justify-content-center align-items-center">
-    <div class="card text-center" style="width: 50%;">
+    <div class="card" style="width: 50%;">
 
-        <div class="card-header" style="background-color: #96D2C8;">
+        <div class="card-header text-center" style="background-color: #96D2C8;">
             <strong>Add Doctor</strong> 
         </div>
 
         <!-- Form for adding a doctor -->
         <form [formGroup]="AddDoctorForm" (ngSubmit)="onSubmit()">
-            <div class="card-body" style="height: 5cm;padding-top:13%;">
+            <div class="card-body">
 
                 <!-- Label and input field for Doctor Name -->
-                <label for="DoctorName"><h6>Doctor Name: </h6></label>
-                <input type="text" name="DoctorName" id="DoctorName" formControlName="DoctorName" required>
+                <label for="DoctorName">Doctor Name: </label>
+                <input class="form-control" type="text" name="DoctorName" id="DoctorName" formControlName="DoctorName" required>
 
                 <!-- Error message for Doctor Name input validation -->
                 <div class="text-danger"
                     *ngIf="!AddDoctorForm.controls?.['DoctorName'].valid && (AddDoctorForm.controls?.['DoctorName'].touched || AddDoctorForm.controls?.['DoctorName'].dirty)">
                     Doctor Name is required
                 </div>
-
+                <!-- Label and input field for Phone Number -->
+                <label for="PhoneNo">Phone Number: </label>
+                <input class="form-control" type="text" name="PhoneNo" id="PhoneNo" formControlName="PhoneNo" required maxlength="10">
+                <!-- Error message for Phone Number input validation -->
+                <div class="text-danger"
+                    *ngIf="!AddDoctorForm.controls?.['PhoneNo'].valid && (AddDoctorForm.controls?.['PhoneNo'].touched || AddDoctorForm.controls?.['PhoneNo'].dirty)">
+                    Phone Number is required and must be numbers
+                </div>
             </div>
 
-            <div class="card-footer" style="background-color: #96D2C8;">
+            <div class="card-footer text-center" style="background-color: #96D2C8;">
 
                 <!-- Submit buttons -->
                 <input class="btn" style="background-color: #348779; color: white;" type="submit" value="Submit"

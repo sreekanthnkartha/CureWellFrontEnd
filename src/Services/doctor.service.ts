@@ -37,7 +37,19 @@ export class DoctorService {
 
   // Function to delete a doctor from the API
   DeleteDoctor(id: number): void {
-    this._httpClient.delete(this.apiUrl + "Doctors/" + id).subscribe();
+    this._httpClient.delete(this.apiUrl + "Doctors/" + id).subscribe((data: any) => {
+      if (data === true) {
+        console.log('Doctor deleted successfully');
+        alert('Doctor details deleted successfully!');
+      } else {
+        console.error('Failed to delete doctor');
+        alert('Failed to delete doctor');
+      }
+    },
+    (error) => {
+      console.error('Error deleting doctor', error);
+      alert('Error deleting doctor. Please try again later.');
+    });
   }
 
   // Function to fetch doctors by specialization code from the API
