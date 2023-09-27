@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/Models/doctor';
 import { DoctorService } from 'src/Services/doctor.service';
@@ -41,8 +41,8 @@ export class EditDoctorComponent {
     // console.log("fgfg"+this.docID+this.docName+this.phoneNo);
     this.editDoctorForm = this.fb.group({
       DoctorID: [this.docID],
-      DoctorName: [''],
-      PhoneNo: ['']
+      DoctorName:['',[Validators.required]],
+      PhoneNo:['',[Validators.required,Validators.pattern(/^[0-9]*$/)]]
     });
     // console.log(this.docID);
   }
