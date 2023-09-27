@@ -25,15 +25,22 @@
                 <!-- Error message for invalid DoctorName input -->
                 <span class="text-danger font-weight-bold" 
                     *ngIf="!editDoctorForm.controls?.['DoctorName'].valid && 
-                    (editDoctorForm.controls?.['DoctorName'].dirty ||
-                    editDoctorForm.controls?.['DoctorName'].touched)">
-                    Doctor name is a required field
+                    (editDoctorForm.controls?.['DoctorName'].touched || 
+                    editDoctorForm.controls?.['DoctorName'].dirty)">
+                    Doctor Name is required
                 </span>
                 <br>
 
                 <!-- Label and input field for Phone No -->
                 <label for="PhoneNo">Phone No</label>
                 <input class="form-control" type="string" name="PhoneNo" formControlName="PhoneNo" id="PhoneNo">
+                <!-- Error message for invalid Phone Number input -->
+                <span class="text-danger font-weight-bold" 
+                    *ngIf="!editDoctorForm.controls?.['PhoneNo'].valid && 
+                    (editDoctorForm.controls?.['PhoneNo'].touched || 
+                    editDoctorForm.controls?.['PhoneNo'].dirty)">
+                    Phone Number is required and must be numbers
+                </span>
                 <br>
             </form>
         </div>

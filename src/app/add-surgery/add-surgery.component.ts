@@ -31,40 +31,24 @@ export class AddSurgeryComponent {
     return(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}${period}`);
   }
 
- 
-
   convertTimeToDecimal(timeString: string): number {
     const [time, period] = timeString.split(' ');
     const [hours, minutes] = time.split(':').map(Number);
 
     let decimalValue = hours + minutes / 100;
-
     if (period && period.toLowerCase() === 'pm') {
-
       decimalValue += 12;
-
     }
-
     console.log(decimalValue);
-
     return decimalValue;
-
   }
-
- 
 
   constructor(private ser: SurgeryService, private fb: FormBuilder, private router: Router) {
-
     this.surgeryService = ser;
-
   }
 
- 
-
   ngOnInit(): void {
-
     console.log("Hello");
-
     this.addSurgeryForm=this.fb.group({
       DoctorID: [''],
       StartTime: ['', [Validators.required, Validators.min(0), Validators.max(24)]],
@@ -72,52 +56,13 @@ export class AddSurgeryComponent {
       SurgeryCategory: [''],
       SurgeryDate: ['']
     })
-  }
-
- 
-
- 
-
-  // initForm(): void {
-
-  //   this.startTime = this.convertDecimalToTime(this.surgery.StartTime);
-
-  //   this.endTime = this.convertDecimalToTime(this.surgery.EndTime);
-
-  //   this.addSurgeryForm = this.fb.group({
-
-      // surgeryId: [{value: this.surgery.SurgeryId, disabled: true}],
-
-      // doctorID: [{value: this.surgery.DoctorID, disabled: true}],
-
-      // startTime: [this.startTime.slice(0,5), [Validators.required, Validators.min(0), Validators.max(24)]],
-
-      // endTime: [this.endTime.slice(0,5), [Validators.required, Validators.min(0), Validators.max(24)]],
-
-      // surgeryCategory: [{value: this.surgery.SurgeryCategory, disabled: true}],
-
-      // surgeryDate: [{value: this.surgery.SurgeryDate.toString().slice(0,10), disabled: true}]
-
-  //   });
-
-  // }
-
- 
-
- 
+  } 
 
   submitForm() {
-
     console.log(this.addSurgeryForm.value);
-
     if (this.addSurgeryForm.valid) {
-      console.log("asffaf");
-
       const formValue = this.addSurgeryForm.value;
 
-      console.log(this.surgeryModel);
-      
-      // surgeryModel.SurgeryId = this.addSurgeryForm.value.SurgeryId;
       this.surgeryModel.DoctorID = this.addSurgeryForm.value.DoctorID;
       this.surgeryModel.StartTime = this.convertTimeToDecimal(formValue.StartTime);
       this.surgeryModel.EndTime = this.convertTimeToDecimal(formValue.EndTime);
