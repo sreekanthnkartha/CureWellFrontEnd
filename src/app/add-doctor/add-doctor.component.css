@@ -1,0 +1,12 @@
+@media only screen and (max-width: 978px){
+    .card_add{
+        width: 100%;
+    }
+}
+
+@media (min-width: 979px){
+    .card_add{
+        margin: auto;
+        width: 40%;
+    }
+}

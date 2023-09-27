@@ -45,9 +45,15 @@
     color: #333;
     margin-top: 10px;
   }
+
   .no-doctor-image {
     width: 60%;
     height: 60%;
     margin: 0 auto;
     display: block;
+  }
+
+  .allSurgeries{
+    display: flex;
+    justify-content: space-between;
   }

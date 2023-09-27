@@ -25,6 +25,17 @@ export class SurgeryService {
     );
   }
 
+  getAllSurgeries():Observable<SurgeryModel[]>{
+    return this.http.get<SurgeryModel[]>("http://localhost:3000/api/AllSurgeries")
+    .pipe(
+      tap(
+        data => console.log('Response received:', data),
+        error => console.error('Error fetching surgeries:', error),
+        () => console.log('Request completed')
+      )
+    );
+  }
+
   // Function to get surgery details by ID
   getSurgeryById(surgeryId: number): Observable<SurgeryModel> {
     const url = `${this.surgeryAPI}/${surgeryId}`;

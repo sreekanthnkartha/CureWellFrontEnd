@@ -26,3 +26,7 @@
 .custom-navbar .navbar-toggler:focus {
   outline: none;
 }
+
+.active{
+  border-bottom: 3px solid white;
+}

@@ -1,11 +1,11 @@
 @media only screen and (max-width: 978px){
-    .abc{
+    .card_edit{
         width: 100%;
     }
 }
 
 @media (min-width: 979px){
-    .abc{
+    .card_edit{
         margin: auto;
         width: 40%;
     }
