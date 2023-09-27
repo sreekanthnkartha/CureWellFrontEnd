@@ -49,4 +49,10 @@ export class SurgeryService {
       }
     );
   }
+
+  AddNewSurgery(addsurgery: SurgeryModel): void {
+    console.log(addsurgery);
+    this.http.post(this.surgeryAPI , addsurgery).subscribe(data => { console.log(data);});
+    alert("New Surgery Added"); // Display an alert after adding the doctor
+  }
 }

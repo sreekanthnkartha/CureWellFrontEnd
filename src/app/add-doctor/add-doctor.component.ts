@@ -31,7 +31,7 @@ export class AddDoctorComponent implements OnInit {
     d.DoctorName = this.AddDoctorForm.value.DoctorName;
 
     // Logging the doctor name and adding it through the DoctorService
-    console.log(d.DoctorName);
+    console.log(d);
     this.docService.AddNewDoctor(d);
   }
 }

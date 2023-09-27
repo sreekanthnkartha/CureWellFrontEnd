@@ -9,17 +9,19 @@ import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specializa
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotFoundErrorComponent } from './pagenot-found-error/pagenot-found-error.component';
+import { AddSurgeryComponent } from './add-surgery/add-surgery.component';
 
 
 const routes: Routes = [
   { path: 'showAllDoctors', component: ViewDoctorComponent },
-  { path: 'editDoctor/:id/:name', component: EditDoctorComponent },
+  { path: 'editDoctor/:id', component: EditDoctorComponent },
   { path: 'viewTodaysSurgery', component: ViewTodaysSurgeryComponent },
   { path: 'updateSurgery', component: UpdateSurgeryComponent },
   { path: 'showAllSpecializations', component: ViewspecializationComponent },
   { path: 'showdoctorbyspecialization/:code', component: ViewDoctorBySpecializationComponent },
   { path: 'updateSurgery/:id', component: UpdateSurgeryComponent },
   { path: 'addDoctor', component: AddDoctorComponent },
+  { path: 'addSurgery', component: AddSurgeryComponent },
   { path: 'Home', component: HomeComponent },
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: '**', component: PagenotFoundErrorComponent },
