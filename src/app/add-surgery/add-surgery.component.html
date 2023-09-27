@@ -2,148 +2,75 @@
 
     <div class="card">
 
-     
-
       <div class="card-header text-center" style="background-color: #96D2C8;">
-
-       
-
         <div style="position: absolute; right: 0; top: 0;">
-
-          <button class="btn" (click)="goBack()"><i class="fa fa-close"></i></button>
-
+           <button class="btn" (click)="goBack()"><i class="fa fa-close"></i></button>
         </div>
-
-        <h4>add Surgery</h4>
-
+        <h4>Add Surgery</h4>
       </div>
 
- 
-
       <!-- Form for updating surgery details -->
-
       <form (ngSubmit)="submitForm()" [formGroup]="addSurgeryForm">
-
         <div class="card-body">
 
- 
-
           <!-- Doctor ID input field -->
-
           <div class="mb-3">
-
             <label for="DoctorID" class="form-label"><strong>Doctor ID</strong></label>
-
             <input type="number" class="form-control" id="DoctorID" formControlName="DoctorID" required>
-
           </div>
-
- 
 
           <!-- Start Time input field -->
-
           <div class="mb-3">
-
             <label for="StartTime" class="form-label"><strong>Start Time</strong></label>
-
             <input type="time" class="form-control" id="StartTime" formControlName="StartTime" required>
 
- 
-
             <!-- Error messages for Start Time -->
-
             <div *ngIf="addSurgeryForm.get('StartTime').hasError('required') && addSurgeryForm.get('StartTime').dirty" class="errormsg">
-
               Start time is required.
-
             </div>
-
             <div *ngIf="addSurgeryForm.get('StartTime').hasError('min')" class="errormsg">
-
               Start time must be at least 0.
-
             </div>
-
             <div *ngIf="addSurgeryForm.get('StartTime').hasError('max')" class="errormsg">
-
               Start time must be at most 24.
-
             </div>
-
           </div>
-
- 
 
           <!-- End Time input field -->
-
           <div class="mb-3">
-
             <label for="EndTime" class="form-label"><strong>End Time</strong></label>
-
             <input type="time" class="form-control" id="EndTime" formControlName="EndTime" required>
 
- 
-
             <!-- Error messages for End Time -->
-
             <div *ngIf="addSurgeryForm.get('EndTime').hasError('required') && addSurgeryForm.get('EndTime').dirty" class="errormsg">
-
               End time is required.
-
             </div>
-
             <div *ngIf="addSurgeryForm.get('EndTime').hasError('min')" class="errormsg">
-
               End time must be at least 0.
-
             </div>
-
             <div *ngIf="addSurgeryForm.get('EndTime').hasError('max')" class="errormsg">
-
               End time must be at most 24.
-
             </div>
-
           </div>
-
- 
 
           <!-- Surgery Category input field -->
-
           <div class="mb-3">
-
             <label for="SurgeryCategory" class="form-label"><strong>Surgery Category</strong></label>
-
             <input type="text" class="form-control" id="SurgeryCategory" formControlName="SurgeryCategory" required>
-
           </div>
-
- 
 
           <!-- Surgery Date input field -->
-
           <div class="mb-3">
-
             <label for="SurgeryDate" class="form-label"><strong>Surgery Date</strong></label>
-
             <input type="date" class="form-control" id="SurgeryDate" formControlName="SurgeryDate" required>
-
           </div>
-
         </div>
-
- 
-
+        
         <!-- Card footer with the add button -->
 
         <div class="card-footer text-center" style="background-color: #96D2C8;">
-
-          <button type="submit" class="btn" style="background-color: #348779; color: white;" id="add-btn">add</button>
-
+          <button type="submit" class="btn" style="background-color: #348779; color: white;" id="add-btn">Add</button>
         </div>
-
       </form>
-
     </div>
-
   </div>

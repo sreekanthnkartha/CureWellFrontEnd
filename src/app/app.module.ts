@@ -13,7 +13,7 @@ import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specializa
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotFoundErrorComponent } from './pagenot-found-error/pagenot-found-error.component';
-import { MatIconModule } from '@angular/material/icon';
+
 import { AddSurgeryComponent } from './add-surgery/add-surgery.component';
 
 
@@ -38,8 +38,7 @@ import { AddSurgeryComponent } from './add-surgery/add-surgery.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatIconModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
