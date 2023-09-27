@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { PagenotFoundErrorComponent } from './pagenot-found-error/pagenot-found-error.component';
 
 import { AddSurgeryComponent } from './add-surgery/add-surgery.component';
+import { ViewAllSurgeriesComponent } from './view-all-surgeries/view-all-surgeries.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AddSurgeryComponent } from './add-surgery/add-surgery.component';
     AddDoctorComponent,
     HomeComponent,
     PagenotFoundErrorComponent,
-    AddSurgeryComponent
+    AddSurgeryComponent,
+    ViewAllSurgeriesComponent
   ],
   imports: [
     BrowserModule,

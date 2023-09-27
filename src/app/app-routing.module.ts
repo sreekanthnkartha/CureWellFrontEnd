@@ -10,6 +10,7 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotFoundErrorComponent } from './pagenot-found-error/pagenot-found-error.component';
 import { AddSurgeryComponent } from './add-surgery/add-surgery.component';
+import { ViewAllSurgeriesComponent } from './view-all-surgeries/view-all-surgeries.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'updateSurgery/:id', component: UpdateSurgeryComponent },
   { path: 'addDoctor', component: AddDoctorComponent },
   { path: 'addSurgery', component: AddSurgeryComponent },
+  { path: 'allSurgeries', component: ViewAllSurgeriesComponent },
   { path: 'Home', component: HomeComponent },
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: '**', component: PagenotFoundErrorComponent },
