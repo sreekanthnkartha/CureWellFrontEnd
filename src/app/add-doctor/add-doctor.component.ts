@@ -20,7 +20,8 @@ export class AddDoctorComponent implements OnInit {
   
   ngOnInit(): void {
     this.AddDoctorForm=this.fb.group({
-      DoctorName:['',[Validators.required]]
+      DoctorName:['',[Validators.required]],
+      PhoneNo:['',[Validators.required,Validators.pattern(/^[0-9]*$/)]]
     })
   }
 
@@ -29,9 +30,11 @@ export class AddDoctorComponent implements OnInit {
     // Creating a new Doctor instance and assigning the value from the form
     let d: Doctor = new Doctor();
     d.DoctorName = this.AddDoctorForm.value.DoctorName;
+    d.PhoneNo=this.AddDoctorForm.value.PhoneNo;
 
     // Logging the doctor name and adding it through the DoctorService
     console.log(d.DoctorName);
+    console.log(d.PhoneNo);
     this.docService.AddNewDoctor(d);
   }
 }
