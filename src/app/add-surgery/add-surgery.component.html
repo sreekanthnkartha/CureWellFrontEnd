@@ -61,7 +61,7 @@
         <div class="mb-3">
           <label for="SurgeryCategory" class="form-label"><strong>Surgery Category</strong></label>
           <select formControlName="SurgeryCategory" id="SurgeryCategory" class="custom-dropdown" :hover required>
-            <option *ngFor="let spec of displayspecialization" [value]="spec.SpecializationName">{{ spec.SpecializationName }}</option>
+            <option *ngFor="let spec of displayspecialization" [value]="spec.SpecializationCode">{{ spec.SpecializationCode }}</option>
           </select>
 
           <!-- <input type="text" class="form-control" id="SurgeryCategory" formControlName="SurgeryCategory" required> -->
