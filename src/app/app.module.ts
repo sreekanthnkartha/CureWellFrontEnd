@@ -13,6 +13,8 @@ import { ViewDoctorBySpecializationComponent } from './view-doctor-by-specializa
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotFoundErrorComponent } from './pagenot-found-error/pagenot-found-error.component';
+import { MatIconModule } from '@angular/material/icon';
+import { AddSurgeryComponent } from './add-surgery/add-surgery.component';
 
 
 @NgModule({
@@ -28,14 +30,16 @@ import { PagenotFoundErrorComponent } from './pagenot-found-error/pagenot-found-
     AddDoctorComponent,
     AddDoctorComponent,
     HomeComponent,
-    PagenotFoundErrorComponent
+    PagenotFoundErrorComponent,
+    AddSurgeryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@
         </div>
         <!-- Loop through each doctor in the displayDoctors array -->
         <div class="col-md-6 col-lg-6" *ngFor="let pos of displayDoctors; let i=index;">
-            <a (click)="showHidePhone(i)" style="position: absolute; right: 7%; top: 3%;"><i class="fa fa-eye"
+            <a (click)="showHidePhone(i)" style="position: absolute; right: 7%; top: 3%;"><i class="fa fa-phone"
                     aria-hidden="true"></i></a>
             <!-- Container for displaying doctor -->
             <div class="doctors_list">
@@ -34,7 +34,7 @@
                     <div class="mt-2">
                         <!-- Button to navigate to the EditDoctor page with DoctorID and DoctorName parameters -->
                         <button class="btn btn-primary edit_button mr-2"
-                            [routerLink]="['/editDoctor', pos.DoctorID, pos.DoctorName]">Edit</button>
+                            [routerLink]="['/editDoctor', pos.DoctorID]">Edit</button>
                         <!-- Button to trigger the removeDoc method with DoctorName and DoctorID parameters -->
                         <button class="btn btn-danger remove_button"
                             (click)="removeDoc(pos.DoctorName, pos.DoctorID)">Remove</button>

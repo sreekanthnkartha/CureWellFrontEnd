@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/Models/doctor';
 import { DoctorService } from 'src/Services/doctor.service';
@@ -10,24 +10,42 @@ import { DoctorService } from 'src/Services/doctor.service';
   styleUrls: ['./edit-doctor.component.css']
 })
 export class EditDoctorComponent {
-  constructor(private _doctorService: DoctorService, private _activatedRoute: ActivatedRoute, private _router: Router) { }
+  constructor(private _doctorService: DoctorService, private _activatedRoute: ActivatedRoute, private _router: Router, private fb: FormBuilder) { }
 
   // Define form and variables
+  doctorById: Doctor = new Doctor();
   editDoctorForm: FormGroup;
   docID: number = 0; // variable for holding Doctor ID
   docName: string = ""; // variable for holding Doctor Name
+  phoneNo: string = ""; // variable for holding Phone No
 
   ngOnInit(): void {
     // Get the doctor ID and name from route parameters
-    this.docID = parseInt(this._activatedRoute.snapshot.paramMap.get('id') || '0', 10);
-    this.docName = this._activatedRoute.snapshot.paramMap.get('name') || '';
+    this.docID = +this._activatedRoute.snapshot.paramMap.get('id');
 
-    // Create a form group with initial values
-    this.editDoctorForm = new FormGroup({
-      DoctorID: new FormControl({value:this.docID, disabled:true}),
-      DoctorName: new FormControl(this.docName)
-    });
+    console.log("fdhgfdh"+this.docID);
+
+    this._doctorService.getDoctorById(this.docID).subscribe(
+      data => {
+        this.doctorById = data;
+        this.docName = this.doctorById.DoctorName;
+        this.phoneNo = this.doctorById.PhoneNo;
+        console.log(this.doctorById);
+        this.editDoctorForm.patchValue(data);
+      }
+    );
+    this.initForm();
   }  
+
+  initForm(): void{
+    // console.log("fgfg"+this.docID+this.docName+this.phoneNo);
+    this.editDoctorForm = this.fb.group({
+      DoctorID: [this.docID],
+      DoctorName: [''],
+      PhoneNo: ['']
+    });
+    // console.log(this.docID);
+  }
 
   // Handle form submission
   onSubmit() { 
@@ -36,6 +54,7 @@ export class EditDoctorComponent {
 
     doctor.DoctorID = this.docID;
     doctor.DoctorName = this.editDoctorForm.value.DoctorName;
+    doctor.PhoneNo = this.editDoctorForm.value.PhoneNo;
 
     // Call the service to edit doctor details and navigate to the showAllDoctors route
     this._doctorService.editDoctorDetails(doctor.DoctorID, doctor);

@@ -13,7 +13,7 @@
         </div>
         <!-- Card body -->
         <div class="card-body">
-            <form class="form-group" action="" [formGroup]="editDoctorForm">
+            <form class="form-group" action="" (ngSubmit)="onSubmit()" [formGroup]="editDoctorForm">
                 <!-- Label and input field for Doctor ID -->
                 <label for="DoctorID">Doctor ID</label>
                 <input class="form-control" type="number" name="DoctorID" formControlName="DoctorID" id="DoctorID">
@@ -29,6 +29,12 @@
                     editDoctorForm.controls?.['DoctorName'].touched)">
                     Doctor name is a required field
                 </span>
+                <br>
+
+                <!-- Label and input field for Phone No -->
+                <label for="PhoneNo">Phone No</label>
+                <input class="form-control" type="string" name="PhoneNo" formControlName="PhoneNo" id="PhoneNo">
+                <br>
             </form>
         </div>
         <!-- Card footer -->
