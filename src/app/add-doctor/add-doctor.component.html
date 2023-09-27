@@ -24,8 +24,12 @@
                 <input class="form-control" type="text" name="PhoneNo" id="PhoneNo" formControlName="PhoneNo" required maxlength="10">
                 <!-- Error message for Phone Number input validation -->
                 <div class="text-danger"
-                    *ngIf="!AddDoctorForm.controls?.['PhoneNo'].valid && (AddDoctorForm.controls?.['PhoneNo'].touched || AddDoctorForm.controls?.['PhoneNo'].dirty)">
-                    Phone Number is required and must be numbers
+                    *ngIf="AddDoctorForm.get('PhoneNo').hasError('required')&& (AddDoctorForm.get('PhoneNo').dirty || AddDoctorForm.get('PhoneNo').touched)">
+                    Phone Number is required
+                </div>
+                <div class="text-danger"
+                    *ngIf="AddDoctorForm.get('PhoneNo').hasError('pattern')">
+                    Phone Number must be integers
                 </div>
             </div>
 
