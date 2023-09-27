@@ -42,9 +42,4 @@ export class ViewAllSurgeriesComponent {
       }
     );
   }
-
-  // Function to navigate to the edit surgery page
-  editSurgery(surgery: SurgeryModel): void {
-    this.router.navigate(['/updateSurgery', surgery.SurgeryId]);
-  }
 }
