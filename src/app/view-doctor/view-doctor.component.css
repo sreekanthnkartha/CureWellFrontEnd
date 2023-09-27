@@ -1,42 +1,84 @@
+/* Styling for cards */
 .card {
     border: none;
     border-radius: 15px;
     transition: all 1s;
     cursor: pointer;
-    box-shadow: 3px 5px 17px -4px #777777
+    box-shadow: 3px 5px 17px -4px #777777;
 }
 
-.apointment button {
+/* Styling for buttons */
+button {
     border-radius: 10px;
     border-color: #eee;
-    font-size: 14px
+    font-size: 14px;
 }
 
+/* Styling for star ratings */
 .ratings i {
     color: green;
     padding-right: 3px;
 }
 
-.row{
+/* Flexbox setup for rows */
+.row {
     display: flex;
     flex-wrap: wrap;
 }
 
-.doctors_list{
+/* Styling for the doctor's list container */
+.doctors_list {
     display: flex;
     background-color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 5%;
     border: 1px solid #ebebeb;
     border-radius: 10px;
-    padding: 30px;
+    padding: 4%;
     box-shadow: 3px 5px 17px -4px #777777;
 }
 
-.doctor_pic{
+/* Styling for the doctor's picture */
+.doctor_pic {
     margin-right: 10%;
 }
 
+/* Styling for h4 elements */
 h4 {
     font-size: 18px;
     font-weight: 700;
 }
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* background-color: #f2f2f2; Background color for the entire page */
+  }
+  
+  .message-box {
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .no-doctor-image {
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .message {
+    font-size: 24px;
+    color: #333;
+    margin-top: 10px;
+  }
+
+  .phoneWithButton{
+    display: flex;
+  }
+
+  .hiddenText{
+    display: none;
+  }

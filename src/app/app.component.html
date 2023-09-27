@@ -1,44 +1,38 @@
-<div class="">
-
+<!-- Main container div -->
+<div>
+  <!-- Navigation bar with custom styling -->
   <nav class="navbar navbar-expand-lg navbar-light custom-navbar nav-fill w-100 mb-3">
-
+    <!-- Brand logo and text -->
     <a class="navbar-brand" href="#">
-
       <img class="mr-2" src="../assets/images/hospital_icon.png" alt="Hospital Icon" width="30" height="30">
-
       <strong style="font-size: larger;">CureWell</strong>
-
     </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-
+    <!-- Toggle button for mobile navigation -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-
     </button>
 
+    <!-- Navigation links container -->
     <div class="collapse navbar-collapse justify-content-centre" id="navbarNavAltMarkup">
-
       <div class="navbar-nav mx-auto mt-3">
+        <!-- Home link -->
         <p><a class="nav-item nav-link active mr-3" [routerLink]="['Home']">Home <span class="sr-only">(current)</span></a></p>
-
+        <!-- View Doctors link -->
         <p><a class="nav-item nav-link mr-3" [routerLink]="['showAllDoctors']">View Doctors </a></p>
-
+        <!-- View Specializations link -->
         <p><a class="nav-item nav-link mr-3" [routerLink]="['showAllSpecializations']">View Specializations</a></p>
-
+        <!-- View oday's Surgery link -->
         <p><a class="nav-item nav-link mr-3" [routerLink]="['viewTodaysSurgery']">View Today's Surgery</a></p>
-
+        <!-- Add Doctor link -->
         <p><a class="nav-item nav-link mr-3" [routerLink]="['addDoctor']">Add Doctor</a></p>
-
       </div>
-
     </div>
-
   </nav>
 
+  <!-- Container for routing content -->
   <div class="container">
-
     <router-outlet></router-outlet>
-
   </div>
-
 </div>

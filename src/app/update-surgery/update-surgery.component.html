@@ -1,61 +1,81 @@
 <div class="container py-3">
   <div class="card">
+   
     <div class="card-header text-center" style="background-color: #96D2C8;">
+     
       <div style="position: absolute; right: 0; top: 0;">
         <button class="btn" (click)="goBack()"><i class="fa fa-close"></i></button>
+      </div>
+      <h4>Update Surgery</h4> 
     </div>
-      <h4>Update Surgery</h4>
-    </div>
-      <form (ngSubmit)="submitForm()" [formGroup]="updateSurgeryForm">
-        <div class="card-body">
 
+    <!-- Form for updating surgery details -->
+    <form (ngSubmit)="submitForm()" [formGroup]="updateSurgeryForm">
+      <div class="card-body">
+
+        <!-- Surgery ID input field (readonly) -->
         <div class="mb-3">
           <label for="surgeryId" class="form-label"><strong>Surgery ID</strong></label>
           <input type="text" class="form-control" id="surgeryId" [value]="surgery.SurgeryId" readonly>
         </div>
+
+        <!-- Doctor ID input field -->
         <div class="mb-3">
           <label for="doctorID" class="form-label"><strong>Doctor ID</strong></label>
           <input type="number" class="form-control" id="doctorID" formControlName="doctorID" required>
         </div>
+
+        <!-- Start Time input field -->
         <div class="mb-3">
           <label for="startTime" class="form-label"><strong>Start Time</strong></label>
-          <input type="time" class="form-control" id="startTime" formControlName="startTime" required >
-          <div *ngIf="updateSurgeryForm.get('startTime').hasError('required') && updateSurgeryForm.get('startTime').dirty" class ="errormsg" >
+          <input type="time" class="form-control" id="startTime" formControlName="startTime" required>
+
+          <!-- Error messages for Start Time -->
+          <div *ngIf="updateSurgeryForm.get('startTime').hasError('required') && updateSurgeryForm.get('startTime').dirty" class="errormsg">
             Start time is required.
           </div>
-          <div *ngIf="updateSurgeryForm.get('startTime').hasError('min')" class ="errormsg" >
+          <div *ngIf="updateSurgeryForm.get('startTime').hasError('min')" class="errormsg">
             Start time must be at least 0.
           </div>
-          <div *ngIf="updateSurgeryForm.get('startTime').hasError('max')" class ="errormsg" >
+          <div *ngIf="updateSurgeryForm.get('startTime').hasError('max')" class="errormsg">
             Start time must be at most 24.
           </div>
         </div>
+
+        <!-- End Time input field -->
         <div class="mb-3">
           <label for="endTime" class="form-label"><strong>End Time</strong>)</label>
           <input type="time" class="form-control" id="endTime" formControlName="endTime" required>
-          <div *ngIf="updateSurgeryForm.get('endTime').hasError('required') && updateSurgeryForm.get('endTime').dirty" class ="errormsg">
+
+          <!-- Error messages for End Time -->
+          <div *ngIf="updateSurgeryForm.get('endTime').hasError('required') && updateSurgeryForm.get('endTime').dirty" class="errormsg">
             End time is required.
           </div>
-          <div *ngIf="updateSurgeryForm.get('endTime').hasError('min')" class ="errormsg" >
+          <div *ngIf="updateSurgeryForm.get('endTime').hasError('min')" class="errormsg">
             End time must be at least 0.
           </div>
-          <div *ngIf="updateSurgeryForm.get('endTime').hasError('max')" class ="errormsg" >
+          <div *ngIf="updateSurgeryForm.get('endTime').hasError('max')" class="errormsg">
             End time must be at most 24.
           </div>
         </div>
+
+        <!-- Surgery Category input field -->
         <div class="mb-3">
           <label for="surgeryCategory" class="form-label"><strong>Surgery Category</strong></label>
           <input type="text" class="form-control" id="surgeryCategory" formControlName="surgeryCategory" required>
         </div>
+
+        <!-- Surgery Date input field -->
         <div class="mb-3">
           <label for="surgeryDate" class="form-label"><strong>Surgery Date</strong></label>
           <input type="date" class="form-control" id="surgeryDate" formControlName="surgeryDate" required>
         </div>
       </div>
+
+      <!-- Card footer with the Update button -->
       <div class="card-footer text-center" style="background-color: #96D2C8;">
         <button type="submit" class="btn" style="background-color: #348779; color: white;" id="update-btn">Update</button>
-        <!-- <button type="button" class="btn btn-secondary" (click)="goBack()">Cancel</button> -->
       </div>
-      </form>
+    </form>
   </div>
 </div>

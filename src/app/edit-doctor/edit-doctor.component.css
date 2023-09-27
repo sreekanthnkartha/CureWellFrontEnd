@@ -1,4 +1,19 @@
+@media only screen and (max-width: 978px){
+    .abc{
+        width: 100%;
+    }
+}
+
+@media (min-width: 979px){
+    .abc{
+        margin: auto;
+        width: 40%;
+    }
+}
+
 .edit_button{
-    width: 30%;
+    width: 50%;
     margin: auto;
+    background-color: #348779; 
+    color: white;
 }

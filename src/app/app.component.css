@@ -1,23 +1,28 @@
+/* Styling for the navigation brand/logo */
 .navbar-brand {
   color: whitesmoke;
   padding-left: 45px;
 }
 
+/* Custom styling for the navigation bar */
 .custom-navbar {
   background-color: #348779;
   width: 100%;
 }
 
+/* Styling for navigation links within the navbar */
 .custom-navbar .navbar-nav .nav-link {
   color: white;
   font-weight: 600;
   font-size: large;
 }
 
+/* Styling for the navbar toggler icon */
 .custom-navbar .navbar-toggler-icon {
-  background-color: white;
+  background-color: #348779;
 }
 
+/* Styling for the focus of the navbar toggler */
 .custom-navbar .navbar-toggler:focus {
   outline: none;
 }

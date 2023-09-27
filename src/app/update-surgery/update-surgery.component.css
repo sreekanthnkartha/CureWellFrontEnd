@@ -1,6 +1,9 @@
-.errormsg{
-    color: red;
+/* Style for error messages */
+.errormsg {
+    color: red; 
 }
-#update-btn{
-    width: 25%;
+
+/* Style for the update button */
+#update-btn {
+    width: 30%; 
 }
