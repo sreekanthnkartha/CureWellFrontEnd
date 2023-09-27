@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/Models/doctor';
 import { DoctorService } from 'src/Services/doctor.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-doctor.component.css']
 })
 
-export class ViewDoctorComponent {
+export class ViewDoctorComponent implements OnInit {
   // Array to store the displayed doctors
   displayDoctors: Doctor[];
 
@@ -18,10 +18,17 @@ export class ViewDoctorComponent {
   ngOnInit(): void {
     // Fetch doctors from the service and subscribe to the data
     this._doctorService.getDoctors().subscribe(
-      (data) => this.displayDoctors = data
+      (data) => {
+        this.displayDoctors = data;
+        this.displayDoctors.forEach(element => {
+          element.ShowPhone = false;
+        });
+      }
     );
-    console.log(this.displayDoctors.length);
-    
+  }
+
+  showHidePhone(index: number){
+    this.displayDoctors[index].ShowPhone = !this.displayDoctors[index].ShowPhone;
   }
 
   // Method to remove a doctor by ID

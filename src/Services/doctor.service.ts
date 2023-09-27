@@ -31,8 +31,17 @@ export class DoctorService {
   }
 
   // Function to edit doctor details in the API
-  editDoctorDetails(id: number, value: Doctor): void {
-    this._httpClient.put(this.apiUrl + "Doctors/" + id, value).subscribe();
+  editDoctorDetails(id: number, value: Doctor) {
+    this._httpClient.put<boolean>(this.apiUrl + "Doctors/" + id, value).subscribe(
+      (data: boolean) => {
+        if(data == false){
+          alert("Couldn't update the doctor");
+        }
+        else{
+          alert("Doctor updated successfully!");
+        }
+      }
+    );
   }
 
   // Function to delete a doctor from the API
