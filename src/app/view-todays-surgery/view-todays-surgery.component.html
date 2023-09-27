@@ -1,7 +1,20 @@
 <div class="row" >
-  <div class="mb-2">
+  <div class="mb-3 allSurgeries">
     <h2>Today's Surgeries</h2>
-  </div>
+    <!-- Button for the adding the doctors -->
+    <div>
+      <button class="btn mr-3" 
+        style="border-radius: 15px; background-color: #348779; color: white; font-weight: bold;"
+        [routerLink]="['/allSurgeries']">
+        All Surgeries
+      </button>
+      <button class="btn" 
+          style="border-radius: 15px; background-color: #348779; color: white; font-weight: bold;"
+          [routerLink]="['/addSurgery']">
+          + Add
+      </button>
+    </div>
+</div>
   <!-- Loop through surgeries in TodaysSurgeryList -->
   <div class="col-12 col-lg-6 col-md-6" *ngFor="let surgery of TodaysSurgeryList">
     <div class="card m-3 " style="display: flex;"> <!-- Card for each surgery -->

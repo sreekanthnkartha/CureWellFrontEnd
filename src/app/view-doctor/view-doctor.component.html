@@ -1,8 +1,14 @@
 <div class="row" *ngIf="displayDoctors.length > 0">
     <div class="row">
         <!-- Heading for the list of doctors -->
-        <div class="mb-2">
+        <div class="mb-3 doctorWithAdd">
             <h2>Doctors</h2>
+            <!-- Button for the adding the doctors -->
+            <button class="btn" 
+                style="border-radius: 15px; background-color: #348779; color: white; font-weight: bold;"
+                [routerLink]="['/addDoctor']">
+                + Add
+            </button>
         </div>
         <!-- Loop through each doctor in the displayDoctors array -->
         <div class="col-md-6 col-lg-6" *ngFor="let pos of displayDoctors; let i=index;">

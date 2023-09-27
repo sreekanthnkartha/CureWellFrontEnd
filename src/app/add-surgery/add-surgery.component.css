@@ -1,0 +1,26 @@
+/* In your component's CSS file or a global stylesheet */
+
+.custom-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+}
+
+.custom-dropdown:hover {
+    border-color: #999;
+}
+
+.custom-dropdown:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Style for the dropdown options */
+.custom-dropdown option {
+    font-size: 16px;
+}

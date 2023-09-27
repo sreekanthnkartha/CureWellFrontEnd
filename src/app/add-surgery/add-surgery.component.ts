@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Doctor } from 'src/Models/doctor';
+import { Doctorspecialization } from 'src/Models/doctorspecialization';
 import { SurgeryModel } from 'src/Models/surgery';
+import { DoctorService } from 'src/Services/doctor.service';
 import { SurgeryService } from 'src/Services/surgery.service';
 
 @Component({
@@ -10,12 +13,15 @@ import { SurgeryService } from 'src/Services/surgery.service';
   styleUrls: ['./add-surgery.component.css']
 })
 export class AddSurgeryComponent {
+
   addSurgeryForm: FormGroup;
   surgeryModel: SurgeryModel = new SurgeryModel();
   surgery: SurgeryModel;
   surgeryService: SurgeryService;
   startTime: string;
   endTime: String;
+  displayDoctors: Doctor[];
+  displayspecialization: Doctorspecialization[];
 
   convertDecimalToTime(decimalValue: number): string {
     let period:string = 'AM';
@@ -43,20 +49,32 @@ export class AddSurgeryComponent {
     return decimalValue;
   }
 
-  constructor(private ser: SurgeryService, private fb: FormBuilder, private router: Router) {
+  constructor(private ser: SurgeryService, private fb: FormBuilder, private router: Router,private _doctorService: DoctorService) {
     this.surgeryService = ser;
   }
 
   ngOnInit(): void {
-    console.log("Hello");
     this.addSurgeryForm=this.fb.group({
       DoctorID: [''],
       StartTime: ['', [Validators.required, Validators.min(0), Validators.max(24)]],
       EndTime: ['', [Validators.required, Validators.min(0), Validators.max(24)]],
       SurgeryCategory: [''],
       SurgeryDate: ['']
-    })
-  } 
+    });
+
+    this._doctorService.getDoctorSpec().subscribe(
+      (data)=>this.displayspecialization=data
+    );
+
+    this._doctorService.getDoctors().subscribe(
+      (data) => {
+        this.displayDoctors = data;
+        this.displayDoctors.forEach(element => {
+          element.ShowPhone = false;
+        });
+      }
+    );
+  }
 
   submitForm() {
     console.log(this.addSurgeryForm.value);
