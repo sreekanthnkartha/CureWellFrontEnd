@@ -48,13 +48,13 @@
           <input type="time" class="form-control" id="endTime" formControlName="endTime" required>
 
           <!-- Error messages for End Time -->
-          <div *ngIf="updateSurgeryForm.get('endTime').hasError('required') && updateSurgeryForm.get('endTime').dirty" class="errormsg">
+          <div *ngIf="updateSurgeryForm.get('endTime').hasError('required') && updateSurgeryForm.get('endTime').dirty" class="text-danger">
             End time is required.
           </div>
-          <div *ngIf="updateSurgeryForm.get('endTime').hasError('min')" class="errormsg">
+          <div *ngIf="updateSurgeryForm.get('endTime').hasError('min')" class="text-danger">
             End time must be at least 0.
           </div>
-          <div *ngIf="updateSurgeryForm.get('endTime').hasError('max')" class="errormsg">
+          <div *ngIf="updateSurgeryForm.get('endTime').hasError('max')" class="text-danger">
             End time must be at most 24.
           </div>
         </div>
