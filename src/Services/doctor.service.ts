@@ -19,6 +19,11 @@ export class DoctorService {
     return this._httpClient.get<Doctor[]>(this.apiUrl + "Doctors");
   }
 
+  // Function to fetch a doctor with the doctor id from the API
+  getDoctorById(id: number): Observable<Doctor> {
+    return this._httpClient.get<Doctor>(this.apiUrl + "Doctor/" + id);
+  }
+
   // Function to fetch list of doctor specializations from the API
   getDoctorSpec(): Observable<Doctorspecialization[]> {
     return this._httpClient.get<Doctorspecialization[]>(this.apiUrl + "Specialization");

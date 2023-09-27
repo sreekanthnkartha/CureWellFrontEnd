@@ -101,6 +101,7 @@ export class UpdateSurgeryComponent {
         alert("Start Time can not be greater than or equal to end time!");
       } else {
         // Update surgery details
+        console.log(surgeryModel);
         this.surgeryService.updateSurgery(surgeryModel);
       }
     }
